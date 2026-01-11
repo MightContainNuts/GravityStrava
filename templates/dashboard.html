@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GravityStrato | Dashboard</title>
+    <!-- Cache-busting link for CSS -->
+    <link rel="stylesheet" href="/static/css/dashboard.css?v=2.1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .pr-card {
+            grid-column: span 3;
+            height: auto;
+            min-height: auto;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+        }
+
+        .zones-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .zone-bar-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .zone-bar-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .zone-bar-bg {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .zone-bar-fill {
+            height: 100%;
+            background: var(--accent-color);
+            width: 0%;
+            transition: width 1s ease-out;
+        }
+
+        .zone-z1 {
+            opacity: 0.4;
+        }
+
+        .zone-z2 {
+            opacity: 0.55;
+        }
+
+        .zone-z3 {
+            opacity: 0.7;
+        }
+
+        .zone-z4 {
+            opacity: 0.85;
+        }
+
+        .zone-z5 {
+            opacity: 1.0;
+        }
+
+        .zone-z6 {
+            background: #ff3e3e;
+        }
+
+        .zone-z7 {
+            background: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header>
+            <div class="logo">GRAVITY<span>STRATO</span></div>
+            <div class="sync-controls">
+                <a href="/strava/refresh" class="sync-btn strava">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M23 4v6h-6"></path>
+                        <path d="M1 20v-6h6"></path>
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                    </svg>
+                    Sync Strava
+                </a>
+                <a href="/withings/refresh" class="sync-btn withings">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M23 4v6h-6"></path>
+                        <path d="M1 20v-6h6"></path>
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                    </svg>
+                    Sync Withings
+                </a>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- This Week's Performance -->
+            <div class="metric-card">
+                <div class="card-title">Weekly Performance</div>
+                <div class="card-header-metrics">
+                    <div class="h-detail-item">
+                        <div class="h-detail-label">Distance</div>
+                        <div class="total-main" id="week-total-dist">—<span>km</span></div>
+                    </div>
+                    <div class="h-detail-item">
+                        <div class="h-detail-label">Elevation</div>
+                        <div class="total-main" id="week-total-elev">—<span>m</span></div>
+                    </div>
+                    <div class="h-detail-item">
+                        <div class="h-detail-label">Activities</div>
+                        <div class="total-main" id="week-total-count">—</div>
+                    </div>
+                    <div class="h-detail-item">
+                        <div class="h-detail-label">Time</div>
+                        <div class="total-main" id="week-total-time">—<span>hr</span></div>
+                    </div>
+                </div>
+                <div class="activity-table-container">
+                    <table class="activity-table">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left;">Type</th>
+                                <th>Dist</th>
+                                <th>Avg HR</th>
+                                <th>Watts</th>
+                            </tr>
+                        </thead>
+                        <tbody id="week-table-body">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Monthly Training Volume (Chart) -->
+            <div class="metric-card">
+                <div class="card-title">Monthly Volume (Hours)</div>
+                <div style="flex-grow: 1; position: relative; height: 0; min-height: 0; margin-top: 1rem;">
+                    <canvas id="monthlyChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Year-to-Date Summary -->
+            <div class="metric-card">
+                <div class="card-title">Year-To-Date Totals</div>
+                <div class="card-header-metrics">
+                    <div class="h-detail-item">
+                        <div class="h-detail-label">Distance</div>
+                        <div class="total-main" id="ytd-total-dist">—<span>km</span></div>
+                    </div>
+                    <div class="h-detail-item">
+                        <div class="h-detail-label">Elevation</div>
+                        <div class="total-main" id="ytd-total-elev">—<span>m</span></div>
+                    </div>
+                    <div class="h-detail-item">
+                        <div class="h-detail-label">Activities</div>
+                        <div class="total-main" id="ytd-total-count">—</div>
+                    </div>
+                    <div class="h-detail-item">
+                        <div class="h-detail-label">Time</div>
+                        <div class="total-main" id="ytd-total-time">—<span>hr</span></div>
+                    </div>
+                </div>
+                <div class="activity-table-container">
+                    <table class="activity-table">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left;">Category</th>
+                                <th>Total Dist</th>
+                                <th>Elevation</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ytd-table-body">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Training Zones Distribution -->
+            <div class="metric-card pr-card">
+                <div class="card-title">Yearly Training Intensity</div>
+                <div class="zones-container">
+                    <div class="zone-box">
+                        <div class="insight-label" style="margin-bottom: 1rem;">Heart Rate Zones</div>
+                        <div id="hr-zones-list">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    <div class="zone-box">
+                        <div class="insight-label" style="margin-bottom: 1rem;">Power Zones</div>
+                        <div id="power_zones_list">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Best Efforts -->
+            <div class="metric-card pr-card">
+                <div class="card-title" style="display: flex; justify-content: space-between; align-items: center;">
+                    All-Time Personal Bests
+                    <button id="sync-pb-btn" class="btn btn-outline"
+                        style="font-size: 10px; padding: 2px 6px; height: auto;">
+                        <span id="sync-pb-icon">🔄</span> Sync All Data
+                    </button>
+                </div>
+                <div class="insights-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="insight-metric">
+                        <div class="insight-label">Longest Ride</div>
+                        <div class="insight-value" id="pr-longest-dist">—<span>km</span></div>
+                        <div class="insight-label" id="pr-longest-date" style="font-size: 0.75rem; opacity: 0.7;">—
+                        </div>
+                    </div>
+                    <div class="insight-metric">
+                        <div class="insight-label">Biggest Climb</div>
+                        <div class="insight-value" id="pr-biggest-climb">—<span>m</span></div>
+                        <div class="insight-label" id="pr-biggest-climb-date" style="font-size: 0.75rem; opacity: 0.7;">
+                            —</div>
+                    </div>
+                    <div class="insight-metric">
+                        <div class="insight-label">Max Watts</div>
+                        <div class="insight-value" id="pr-max-watts">—<span>W</span></div>
+                        <div class="insight-label" id="pr-max-watts-date" style="font-size: 0.75rem; opacity: 0.7;">—
+                        </div>
+                    </div>
+                    <div class="insight-metric">
+                        <div class="insight-label">Most Weekly Distance</div>
+                        <div class="insight-value" id="pr-max-week-dist">—<span>km</span></div>
+                        <div class="insight-label" id="pr-max-week-date" style="font-size: 0.75rem; opacity: 0.7;">—
+                        </div>
+                    </div>
+                    <div class="insight-metric">
+                        <div class="insight-label">Most Monthly Distance</div>
+                        <div class="insight-value" id="pr-max-month-dist">—<span>km</span></div>
+                        <div class="insight-label" id="pr-max-month-date" style="font-size: 0.75rem; opacity: 0.7;">—
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- All-Time Power Profile -->
+            <div class="metric-card pr-card">
+                <div class="card-title">All-Time Power Profile</div>
+                <div class="insights-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="insight-metric">
+                        <div class="insight-label">1-min Power</div>
+                        <div class="insight-value" id="pwr-1min">—<span>W</span></div>
+                        <div class="insight-label" id="pwr-1min-date" style="font-size: 0.75rem; opacity: 0.7;">
+                            Anaerobic Capacity</div>
+                    </div>
+                    <div class="insight-metric">
+                        <div class="insight-label">5-min Power</div>
+                        <div class="insight-value" id="pwr-5min">—<span>W</span></div>
+                        <div class="insight-label" id="pwr-5min-date" style="font-size: 0.75rem; opacity: 0.7;">VO₂
+                            Ceiling</div>
+                    </div>
+                    <div class="insight-metric">
+                        <div class="insight-label">20-min Power</div>
+                        <div class="insight-value" id="pwr-20min">—<span>W</span></div>
+                        <div class="insight-label" id="pwr-20min-date" style="font-size: 0.75rem; opacity: 0.7;">FTP
+                            Proxy</div>
+                    </div>
+                    <div class="insight-metric">
+                        <div class="insight-label">60-min Power</div>
+                        <div class="insight-value" id="pwr-60min">—<span>W</span></div>
+                        <div class="insight-label" id="pwr-60min-date" style="font-size: 0.75rem; opacity: 0.7;">
+                            Endurance Threshold</div>
+                    </div>
+                    <div class="insight-metric">
+                        <div class="insight-label">Highest Avg Power</div>
+                        <div class="insight-value" id="pwr-max-avg">—<span>W</span></div>
+                        <div class="insight-label" id="pwr-max-avg-date" style="font-size: 0.75rem; opacity: 0.7;">Rides
+                            ≥ 60 min</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Fitness Insights (Bottom Row) -->
+            <div class="metric-card ai-insights-card" id="ai-panel">
+                <div class="card-title">AI Fitness Insights & Trends</div>
+                <div class="insights-grid">
+                    <div class="insight-metric">
+                        <div class="insight-label">Efficiency Factor</div>
+                        <div class="insight-value" id="trend-efficiency">—<span>P/HR</span></div>
+                    </div>
+                    <div class="insight-metric">
+                        <div class="insight-label">30-Day HR Drift</div>
+                        <div class="insight-value" id="trend-drift">—<span>%</span></div>
+                    </div>
+                    <div class="insight-metric">
+                        <div class="insight-label">Last Weight</div>
+                        <div class="insight-value" id="health-weight">—<span>kg</span></div>
+                    </div>
+                    <div class="insight-metric">
+                        <div class="insight-label">Weight Trend</div>
+                        <div class="insight-value" id="trend-weight">—<span>kg</span></div>
+                    </div>
+                    <div class="insight-metric">
+                        <div class="insight-label">FTP</div>
+                        <div class="insight-value" id="official-ftp">—<span>W</span></div>
+                    </div>
+                    <div class="insight-metric">
+                        <div class="insight-label">W/kg</div>
+                        <div class="insight-value" id="official-wkg">—<span>W/kg</span></div>
+                    </div>
+                    <div class="insight-metric" id="fitness-score-card">
+                        <div class="insight-label">Fitness Score</div>
+                        <div class="insight-value" id="trend-vo2">—<span>pts</span></div>
+                    </div>
+                    <div class="ai-summary-box">
+                        <div class="ai-summary-header">
+                            <span class="insight-label">Latest Session Feedback</span>
+                            <div style="display: flex; gap: 0.75rem; align-items: center;">
+                                <button id="analyze-btn" class="sync-status"
+                                    style="cursor: pointer; padding: 0.35rem 0.8rem; border-radius: 99px; background: rgba(252, 76, 2, 0.15); border-color: rgba(252, 76, 2, 0.3); color: var(--accent-color); font-weight: 700;">
+                                    ✨ Analyze Activity
+                                </button>
+                                <span id="latest-session-type" class="session-tier">—</span>
+                            </div>
+                        </div>
+                        <p id="ai-summary">Ready to analyze your training behavior. Click the button to generate
+                            your
+                            assessment.</p>
+                        <div id="withings-promo"
+                            style="display: none; margin-top: 1rem; padding: 0.75rem; background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px dashed rgba(255,255,255,0.1);">
+                            <span style="font-size: 0.8rem; color: var(--text-secondary);">Weight data missing.
+                            </span>
+                            <a href="/auth/withings/login"
+                                style="color: var(--accent-color); font-size: 0.8rem; font-weight: 700; text-decoration: none;">Connect
+                                Withings →</a>
+                        </div>
+                        <div style="margin-top: 1rem; font-size: 0.8125rem; color: var(--text-secondary);"
+                            id="ai-notes"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function loadDashboard() {
+            try {
+                const response = await fetch('/activities/pandas');
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const data = await response.json();
+
+                if (!data || data.length === 0) {
+                    console.log("No activity data found.");
+                    return;
+                }
+
+                const now = new Date();
+                const currentYear = now.getFullYear();
+
+                const getStartOfWeek = () => {
+                    const d = new Date(now);
+                    const day = d.getDay();
+                    const diff = d.getDate() - day + (day === 0 ? -6 : 1); // Monday
+                    return new Date(d.setDate(diff)).setHours(0, 0, 0, 0);
+                };
+
+                const startOfWeek = getStartOfWeek();
+                const startOfYear = new Date(currentYear, 0, 1).getTime();
+
+                // 1. Weekly Performance
+                try {
+                    const weeklyActivities = data.filter(d => new Date(d.start_date).getTime() >= startOfWeek);
+                    const weekTableBody = document.getElementById('week-table-body');
+
+                    const weekDist = weeklyActivities.reduce((acc, curr) => acc + curr.distance, 0) / 1000;
+                    const weekElev = weeklyActivities.reduce((acc, curr) => acc + curr.total_elevation_gain, 0);
+                    const weekTime = weeklyActivities.reduce((acc, curr) => acc + curr.moving_time, 0) / 3600;
+
+                    document.getElementById('week-total-dist').innerHTML = `${weekDist.toFixed(1)}<span>km</span>`;
+                    document.getElementById('week-total-elev').innerHTML = `${weekElev.toLocaleString()}<span>m</span>`;
+                    document.getElementById('week-total-count').innerText = weeklyActivities.length;
+                    document.getElementById('week-total-time').innerHTML = `${weekTime.toFixed(1)}<span>hr</span>`;
+
+                    if (weeklyActivities.length === 0) {
+                        weekTableBody.innerHTML = '<tr class="empty-row"><td colspan="4">No activities this week.</td></tr>';
+                    } else {
+                        weekTableBody.innerHTML = weeklyActivities.map(a => `
+                            <tr>
+                                <td><span class="type-tag">${a.type.replace(/([A-Z])/g, ' $1').trim()}</span></td>
+                                <td>${(a.distance / 1000).toFixed(1)}</td>
+                                <td>${a.average_heartrate ? a.average_heartrate.toFixed(0) : '—'}</td>
+                                <td>${a.average_watts ? a.average_watts.toFixed(0) : '—'}</td>
+                            </tr>
+                        `).join('');
+                    }
+                } catch (e) { console.error("Weekly error:", e); }
+
+                // 2. Monthly Training Chart (Hours)
+                try {
+                    const ytdActivities = data.filter(d => new Date(d.start_date).getTime() >= startOfYear);
+                    const monthlyHours = new Array(12).fill(0);
+
+                    ytdActivities.forEach(a => {
+                        const month = new Date(a.start_date).getMonth();
+                        monthlyHours[month] += a.moving_time / 3600;
+                    });
+
+                    const currentMonth = now.getMonth();
+                    const relevantMonths = monthlyHours.slice(0, currentMonth + 1);
+                    const avgHours = relevantMonths.reduce((a, b) => a + b, 0) / (currentMonth + 1);
+
+                    const ctxEl = document.getElementById('monthlyChart');
+                    if (ctxEl) {
+                        const ctx = ctxEl.getContext('2d');
+                        new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                                datasets: [
+                                    {
+                                        label: 'Monthly Hours',
+                                        data: monthlyHours,
+                                        backgroundColor: 'rgba(252, 76, 2, 0.4)',
+                                        borderColor: '#fc4c02',
+                                        borderWidth: 2,
+                                        borderRadius: 6,
+                                        order: 1
+                                    },
+                                    {
+                                        label: 'YTD Average',
+                                        data: new Array(12).fill(avgHours),
+                                        type: 'line',
+                                        borderColor: 'rgba(255, 255, 255, 0.5)',
+                                        borderDash: [5, 5],
+                                        borderWidth: 2,
+                                        pointRadius: 0,
+                                        fill: false,
+                                        order: 0
+                                    }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: { display: false },
+                                    tooltip: {
+                                        backgroundColor: 'rgba(13, 13, 18, 0.9)',
+                                        titleFont: { size: 12, weight: 'bold' },
+                                        bodyFont: { size: 12 },
+                                        padding: 10,
+                                        borderColor: 'rgba(255, 255, 255, 0.1)',
+                                        borderWidth: 1,
+                                        callbacks: {
+                                            label: (context) => ` ${context.raw.toFixed(1)} hr`
+                                        }
+                                    }
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        grid: { color: 'rgba(255, 255, 255, 0.05)', drawBorder: false },
+                                        ticks: { color: '#a1a1aa', font: { size: 10 } }
+                                    },
+                                    x: {
+                                        grid: { display: false },
+                                        ticks: { color: '#a1a1aa', font: { size: 10, weight: '600' } }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                } catch (e) { console.error("Monthly chart error:", e); }
+
+                // 3. Year-to-Date Summary
+                try {
+                    const ytdActivities = data.filter(d => new Date(d.start_date).getTime() >= startOfYear);
+                    const ytdDist = ytdActivities.reduce((acc, curr) => acc + curr.distance, 0) / 1000;
+                    const ytdTime = ytdActivities.reduce((acc, curr) => acc + curr.moving_time, 0) / 3600;
+                    const ytdElev = ytdActivities.reduce((acc, curr) => acc + curr.total_elevation_gain, 0);
+
+                    document.getElementById('ytd-total-dist').innerHTML = `${ytdDist.toLocaleString(undefined, { maximumFractionDigits: 1 })}<span>km</span>`;
+                    document.getElementById('ytd-total-time').innerHTML = `${ytdTime.toFixed(0)}<span>hr</span>`;
+                    document.getElementById('ytd-total-count').innerText = ytdActivities.length;
+                    document.getElementById('ytd-total-elev').innerHTML = `${ytdElev.toLocaleString()}<span>m</span>`;
+
+                    const ytdGrouped = {};
+                    ytdActivities.forEach(a => {
+                        if (!ytdGrouped[a.type]) {
+                            ytdGrouped[a.type] = { dist: 0, elev: 0, time: 0 };
+                        }
+                        ytdGrouped[a.type].dist += a.distance;
+                        ytdGrouped[a.type].elev += a.total_elevation_gain;
+                        ytdGrouped[a.type].time += a.moving_time;
+                    });
+
+                    const ytdTableBody = document.getElementById('ytd-table-body');
+                    if (ytdTableBody) {
+                        ytdTableBody.innerHTML = Object.entries(ytdGrouped)
+                            .sort((a, b) => b[1].time - a[1].time)
+                            .map(([type, stats]) => `
+                            <tr>
+                                <td><span class="type-tag">${type.replace(/([A-Z])/g, ' $1').trim()}</span></td>
+                                <td>${(stats.dist / 1000).toFixed(1)}</td>
+                                <td>${stats.elev.toLocaleString()}</td>
+                                <td>${(stats.time / 3600).toFixed(0)}h</td>
+                            </tr>
+                        `).join('');
+                    }
+                } catch (e) { console.error("YTD error:", e); }
+
+                // 4. Personal Best Efforts (All-Time)
+                try {
+                    let longestRide = { distance: 0, date: null };
+                    let biggestClimb = { elev: 0, date: null };
+                    let maxWatts = { watts: 0, date: null };
+                    const weeklyGroup = {};
+                    const monthlyGroup = {};
+
+                    data.forEach(a => {
+                        if (a.distance > longestRide.distance) { longestRide = { distance: a.distance, date: a.start_date }; }
+                        if (a.total_elevation_gain > biggestClimb.elev) { biggestClimb = { elev: a.total_elevation_gain, date: a.start_date }; }
+                        if (a.max_watts > maxWatts.watts) { maxWatts = { watts: a.max_watts, date: a.start_date }; }
+
+                        if (a.start_date) {
+                            const d = new Date(a.start_date);
+                            const monthKey = a.start_date.substring(0, 7);
+                            monthlyGroup[monthKey] = (monthlyGroup[monthKey] || 0) + a.distance;
+
+                            const day = d.getUTCDay();
+                            const diff = d.getUTCDate() - day + (day === 0 ? -6 : 1);
+                            const monday = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), diff));
+                            const weekKey = monday.toISOString().split('T')[0];
+                            weeklyGroup[weekKey] = (weeklyGroup[weekKey] || 0) + a.distance;
+                        }
+                    });
+
+                    let maxWeek = { dist: 0, date: null };
+                    Object.entries(weeklyGroup).forEach(([date, dist]) => { if (dist > maxWeek.dist) maxWeek = { dist, date }; });
+                    let maxMonth = { dist: 0, date: null };
+                    Object.entries(monthlyGroup).forEach(([date, dist]) => { if (dist > maxMonth.dist) maxMonth = { dist, date }; });
+
+                    if (longestRide.date) {
+                        const lrDate = new Date(longestRide.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+                        document.getElementById('pr-longest-dist').innerHTML = `${(longestRide.distance / 1000).toFixed(1)}<span>km</span>`;
+                        document.getElementById('pr-longest-date').innerText = lrDate;
+                    }
+
+                    if (biggestClimb.date) {
+                        const bcDate = new Date(biggestClimb.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+                        document.getElementById('pr-biggest-climb').innerHTML = `${biggestClimb.elev.toLocaleString()}<span>m</span>`;
+                        document.getElementById('pr-biggest-climb-date').innerText = bcDate;
+                    }
+
+                    if (maxWatts.date) {
+                        const mwDate = new Date(maxWatts.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+                        document.getElementById('pr-max-watts').innerHTML = `${Number(maxWatts.watts).toFixed(0)}<span>W</span>`;
+                        document.getElementById('pr-max-watts-date').innerText = mwDate;
+                    }
+
+                    if (maxWeek.date) {
+                        document.getElementById('pr-max-week-dist').innerHTML = `${(maxWeek.dist / 1000).toFixed(0)}<span>km</span>`;
+                        document.getElementById('pr-max-week-date').innerText = `Week of ${new Date(maxWeek.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}`;
+                    }
+
+                    if (maxMonth.date) {
+                        const [year, month] = maxMonth.date.split('-');
+                        const monthName = new Date(year, month - 1).toLocaleString(undefined, { month: 'long', year: 'numeric' });
+                        document.getElementById('pr-max-month-dist').innerHTML = `${(maxMonth.dist / 1000).toFixed(0)}<span>km</span>`;
+                        document.getElementById('pr-max-month-date').innerText = monthName;
+                    }
+                } catch (e) { console.error("PB error:", e); }
+
+                // 5. Yearly Zones
+                try {
+                    const zonesRes = await fetch('/activities/zones-yearly');
+                    const zones = await zonesRes.json();
+
+                    const renderZones = (containerId, data) => {
+                        const container = document.getElementById(containerId);
+                        if (!container) return;
+                        const totalSec = Object.values(data).reduce((a, b) => a + b, 0);
+                        if (totalSec === 0) {
+                            container.innerHTML = '<div style="color: var(--text-secondary); font-size: 0.8rem;">No zone data available for this year yet.</div>';
+                            return;
+                        }
+
+                        container.innerHTML = Object.entries(data).map(([z, sec]) => {
+                            const percent = (sec / totalSec) * 100;
+                            const hours = (sec / 3600).toFixed(1);
+                            return `
+                            <div class="zone-bar-wrapper">
+                                <div class="zone-bar-info">
+                                    <span>${z}</span>
+                                    <span>${hours}h (${percent.toFixed(0)}%)</span>
+                                </div>
+                                <div class="zone-bar-bg">
+                                    <div class="zone-bar-fill zone-${z.toLowerCase()}" style="width: ${percent}%"></div>
+                                </div>
+                            </div>
+                            `;
+                        }).join('');
+                    };
+
+                    renderZones('hr-zones-list', zones.hr);
+                    renderZones('power_zones_list', zones.power);
+                } catch (e) { console.error("Zones error:", e); }
+
+                // 6. Power Profile
+                try {
+                    const pwrRes = await fetch('/activities/power-stats');
+                    const pwr = await pwrRes.json();
+
+                    const updatePwr = (id, val, date) => {
+                        const el = document.getElementById(id);
+                        if (el && val > 0) {
+                            el.innerHTML = `${val.toFixed(0)}<span>W</span>`;
+                            const label = document.getElementById(`${id}-date`);
+                            if (date && label && !label.innerText.includes('•')) {
+                                const dStr = new Date(date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+                                label.innerText = `${label.innerText} • ${dStr}`;
+                            }
+                        }
+                    };
+
+                    updatePwr('pwr-1min', pwr.peak_1min.val, pwr.peak_1min.date);
+                    updatePwr('pwr-5min', pwr.peak_5min.val, pwr.peak_5min.date);
+                    updatePwr('pwr-20min', pwr.peak_20min.val, pwr.peak_20min.date);
+                    updatePwr('pwr-60min', pwr.peak_60min.val, pwr.peak_60min.date);
+                    updatePwr('pwr-max-avg', pwr.max_avg_p.val, pwr.max_avg_p.date);
+                } catch (e) { console.error("Power profile error:", e); }
+
+                // 7. AI Insights
+                try {
+                    const trendsRes = await fetch('/ai/fitness-trends');
+                    const trends = await trendsRes.json();
+
+                    if (trends) {
+                        const ftpEl = document.getElementById('official-ftp');
+                        if (ftpEl) ftpEl.innerHTML = `${(trends.official_ftp || 200).toFixed(0)}<span>W</span>`;
+
+                        const wkgEl = document.getElementById('official-wkg');
+                        if (wkgEl) wkgEl.innerHTML = `${(trends.official_w_kg || 0).toFixed(2)}<span>W/kg</span>`;
+
+                        const effEl = document.getElementById('trend-efficiency');
+                        if (effEl && trends.avg_efficiency) effEl.innerHTML = `${trends.avg_efficiency.toFixed(2)}<span>P/HR</span>`;
+
+                        const weightEl = document.getElementById('health-weight');
+                        if (weightEl && trends.latest_weight) {
+                            weightEl.innerHTML = `${trends.latest_weight.toFixed(1)}<span>kg</span>`;
+                            const delta = trends.weight_delta || 0;
+                            const prefix = delta > 0 ? '+' : '';
+                            const twEl = document.getElementById('trend-weight');
+                            if (twEl) twEl.innerHTML = `${prefix}${delta.toFixed(1)}<span>kg</span>`;
+                            const wpEl = document.getElementById('withings-promo');
+                            if (wpEl) wpEl.style.display = 'none';
+                        }
+
+                        const fitnessEl = document.getElementById('trend-vo2');
+                        if (fitnessEl && trends.fitness_level) {
+                            fitnessEl.innerHTML = `${trends.fitness_level}<span>pts</span>`;
+                            const fsEl = document.getElementById('fitness-score-card');
+                            if (fsEl) fsEl.style.display = 'flex';
+                        }
+
+                        if (data.length > 0) {
+                            const feedbackRes = await fetch(`/ai/feedback/${data[0].id}`);
+                            if (feedbackRes.ok) {
+                                const fb = await feedbackRes.json();
+                                document.getElementById('ai-summary').innerText = fb.summary;
+                                document.getElementById('latest-session-type').innerText = fb.session_type || 'Session';
+                                document.getElementById('ai-notes').innerText = fb.notes || '';
+                            }
+                        }
+                    }
+                } catch (e) { console.error("AI Trends error:", e); }
+
+            } catch (err) {
+                console.error("Dashboard massive failure:", err);
+            }
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            loadDashboard();
+
+            // Analysis Trigger
+            const analyzeBtn = document.getElementById('analyze-btn');
+            if (analyzeBtn) {
+                analyzeBtn.addEventListener('click', async () => {
+                    analyzeBtn.disabled = true;
+                    analyzeBtn.innerText = 'Analyzing...';
+                    try {
+                        const res = await fetch('/ai/analyze-all', { method: 'POST' });
+                        if (res.ok) { location.reload(); }
+                        else {
+                            const err = await res.json();
+                            alert(`Analysis failed: ${err.detail}`);
+                            analyzeBtn.disabled = false;
+                            analyzeBtn.innerText = '✨ Analyze Recent';
+                        }
+                    } catch (err) {
+                        alert('Failed to connect to AI service.');
+                        analyzeBtn.disabled = false;
+                        analyzeBtn.innerText = '✨ Analyze Recent';
+                    }
+                });
+            }
+
+            // Deep Sync Trigger
+            const syncPbBtn = document.getElementById('sync-pb-btn');
+            if (syncPbBtn) {
+                syncPbBtn.addEventListener('click', async () => {
+                    syncPbBtn.disabled = true;
+                    const icon = document.getElementById('sync-pb-icon');
+                    if (icon) icon.classList.add('spin-animation');
+                    syncPbBtn.innerHTML = '🔄 Syncing & Analyzing...';
+                    try {
+                        // This might take a while if many candidates are found
+                        const res = await fetch('/strava/sync-history', { method: 'POST' });
+                        if (res.ok) {
+                            location.reload();
+                        }
+                        else {
+                            const err = await res.json();
+                            alert(`History sync failed: ${err.detail}`);
+                            syncPbBtn.disabled = false;
+                            syncPbBtn.innerHTML = '🔄 Sync All Data';
+                        }
+                    } catch (err) {
+                        alert('History sync is running in the background. Please refresh in a minute.');
+                        syncPbBtn.disabled = false;
+                        syncPbBtn.innerHTML = '🔄 Sync All Data';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1389 @@
+{
+    "resource_state": 3,
+    "athlete": {
+        "id": 10043130,
+        "resource_state": 1
+    },
+    "name": "Oh. Dropped my cucumber.",
+    "distance": 35561.9,
+    "moving_time": 4631,
+    "elapsed_time": 4712,
+    "total_elevation_gain": 221.0,
+    "type": "Ride",
+    "sport_type": "Ride",
+    "workout_type": null,
+    "device_name": "Wahoo ELEMNT ROAM 3",
+    "id": 16675637348,
+    "start_date": "2025-12-07T11:50:30Z",
+    "start_date_local": "2025-12-07T12:50:30Z",
+    "timezone": "(GMT+01:00) Europe/Berlin",
+    "utc_offset": 3600.0,
+    "location_city": null,
+    "location_state": null,
+    "location_country": null,
+    "achievement_count": 13,
+    "kudos_count": 6,
+    "comment_count": 3,
+    "athlete_count": 1,
+    "photo_count": 0,
+    "map": {
+        "id": "a16675637348",
+        "polyline": "gpgxHoexfAaEa_@_BuO}Cc`@KmBg@eIEYGSKMOEkAOqGeBcFcA_@AYEsHcBQM[q@QQGAQLgBdCGBG?IEGKCMAkAGw@{AqJc@iE_@yBi@oB_AqBY{@qH}\\aBsGe@sAMSQMSEQ@OHu@~@KHM@KCUQKAKDUT}BtCKHM@KC{BaAwKcEuEcBOGKKESAm@j@oKTsGlBgc@?_@I}@GYe@eAGWEs@BWHi@xAcENm@Jw@`@wHlBkd@j@iLLmDCcBBOLUTKL?D@pAvAVRp@XTN~BbCHNPd@Hn@BfBDp@zAbNHzCFpGHzAPz@Vx@nB|ENf@l@fFNj@Tf@LNPHNBPC`@SbA}@NENA\\FtGfBjB^`ANnDPfEHpA?x@GjAOl@Mh@Ud@_@zD{Db@i@V]^s@bA_CXw@d@gBRg@`@q@f@i@j@]\\Kn@GhBBLCt@[fAQXI|@s@lCiCLIh@Qf@]hVgUhFeFdAgA\\Oh@EXFn@^J?XQL?LGLUDQFi@Fy@AcAU}E@kERwBFMFAFDFJxAzFJjADxCLp@~@nBd@rAx@pCz@lElAbD`AzDf@~AdAlCZl@\\`@b@Vb@Nb@Jd@AfDo@dD[bEi@vDQjIGl@GxDg@r@[XQd@e@j@y@LIf@OJIR[jAuCFg@AkBH{@?UKaE@kAHeAT}AXyCAYGWa@w@Kq@?u@DuA?mCDwAJwALs@JUJONIJAd@NH?JENYjDsJT{@l@oC^sAHc@Dg@B_DIuKHiEIsB?_CGg@Sa@g@e@{AaAKKGQAUBk@|@mHVsFJo@HU~@uA`@s@~@qBb@mAJk@Fm@JiCJ_A|@sDf@kDl@aC`@cD`AaF^wAz@uCP}ANo@Ri@|@iBPg@ZmADg@@_DBaALs@`@{@BK@YCOUuAkAgFCS@UHm@?YO_AAUBm@RqADk@@qC^aEZyE@gFKuMDaDLuBTkBFqBZaFLyC|@gMN}ALeATwAp@wC|AyEp@}ARYl@g@HKFOHe@FOJIbDsBdAe@RQr@qAn@wAZaAZeAT_B`@_ELsBDsARyBXaBdAeFrAiKJ{APwDBiCKkCOqBUuAYoAOc@e@_Aw@aAYQi@M[OqAy@YYKQi@kAUaA[eBa@yCMiB]{CAs@AsADiCI}DJmHO_GE_GBoAAw@UaDS{EOkCSkAs@wCg@}BQgBKgB?u@BWPk@x@eBDWBYEq@e@aCKcAEeAFm@j@{BFm@DoC@_IL{CHg@VoArAgE`@}Af@aDJ}@HsA@cGKkGCyD]qGMaAQe@k@cAi@k@q@g@kB{@uAy@_@_@g@{@[c@wDqDo@c@oAk@iBuAOGK?KFo@fAi@l@k@^a@HcBEiCDuACoFm@c@Ka@QaDeCsDoBk@e@e@o@}AsC}CqG]k@EKAO@MVw@?QEOIGUKeC_Ae@MM?MDe@\\MFMD]Cw@KM@MDUX_@j@Q^Ij@@dAEl@Mh@m@|Aa@jA]n@kAjB_@\\aAp@QROZIv@MdDWbLSjCGh@Od@}@vA[n@Md@El@AzCFdCNxAf@rCLz@@h@GhBYtCIh@k@~A]pAe@bA_@h@{BvCSRWFg@AKCWOaAaAk@g@k@o@WSaA_@yBeA[K_@EgCBy@Li@LyDrAq@P_ANiAJYF}@ZmBdAKHUZQ`@Ob@YhBe@~DSpAkApFi@~As@rAsBpC_@d@y@p@_@b@m@hAUf@Ef@L`B?dAId@Wt@ETQbBi@`D[hCo@xD{AnM]zAmBfFKx@CtFEx@SlCCl@D|@^tCHx@@|@E~FG|@Gf@u@tDKt@iA~K_AjIAfBFpRGdIE~@MjAg@vC_@tC?ZFd@n@xBP`ABb@Ct@StA{@hDuAxEk@bCWtASxAk@rGc@rGS|ECRERIJM@KC}AcA[MOBKJIPERKzA@|AD`APnAVdA|@`CH^@PAd@KfAQXUP_Bn@uCrAYPYXGZC\\Fp@vAvHj@vDFpA@hBGtCe@~Hy@xHa@fDGp@AbBEp@Gr@U`Bo@dD[hAa@hAyA~C[~@m@hBmAdFq@bDg@dByAzDcAzBk@`Ao@bBS~@ShC]tCOzD}AbIOh@S^YXu@f@[Xe@p@Qb@M\\g@nCYrCIf@g@hBQ`@QZWNeBj@mHpCiAz@gAtAmAdC{@tBk@nB]hBQfB_@pFEjAMrHGt@IRMLOFg@Bi@Ck@Ik@Ma@QKEKDGLGn@Av@@|@L`A^~Bf@vBf@lBdBrFPp@ZnBRz@d@|Al@xA`ArB`@n@~@hADRA`@MrABnB}Bph@c@zKc@tIMv@c@tAo@hBUv@Ib@?l@Hl@FT`@x@FTFp@?p@gBv`@[vHg@lKEt@@^LVXR~KhE`GvB|@`@PVB@TUxCsDHEJ?RPJ@LCVUb@i@LILEP?LFLJJPPf@`@pAdAfEdIr^Rn@~@pBn@zB^fCX`D`BnKJtCBDBAb@KNOX_@v@oAHGJCJDHJXj@JJXLrGvAnALfEx@nAXdEhAh@Lx@HJHHNF`@r@nM|C``@xAzNr@~FvAfNr@~FBd@?jCB^BHDBF?`Bk@h@INBVb@HVFbAAHED",
+        "resource_state": 3,
+        "summary_polyline": "gpgxHoexfAaHwo@}Cc`@aAaNyJiCqQoD_AqAYJgBdCYAU}C_DuTcC}GqH}\\aBsGs@gBw@QqArAgAOsCjDYJqWaKGaAnDkx@I}Am@_BMkALaAxAcEZeBzDm{@HqGf@q@R@hBjBfAh@~BbCZt@RhEzAbNZhOh@tB~BdGl@fFd@rA`AXdCyA~KnCpF`@xGH|E{@|GcHbBsDrAgEhA{AhAi@xCCdD{@jE}D~Ay@x_@u^fAUtAf@t@YRg@NcBWaH@kERwBNOhBlGPdFLp@dBbEx@pCz@lElAbDhBzG`BzD`Ax@lBXpOuBbOYfFo@lAm@pA_B`Ac@~AqDNeFImGx@}Hk@iBKq@DyGPoDd@yAjABZ_@jDsJrBkJEuP?}L[iAcCgBUs@`AyIVsFTeA`BiCbB_Ej@cH|@sDtAmHbBeKzAmF`@mCpAsCl@uBJiGr@{BW_CkAgFFqBQuA\\kD@qCz@{KC_ZbDuf@tAuHnCwHjAmAd@oA|FkDbBiDv@gCv@_Hf@aI~AgIrAiK\\sGBiC[}F_AiE}AaC_Bo@wBeB_AmC}@_Gm@yHE{KJmHSgSy@iOoBaJ]oEBmAjAqCHq@k@sDQiCz@wEFoML{C`@wBtBeH|@sHMiUk@sI}@iBi@k@sF}CcB_CwDqDyFmDWFyAtBmAh@cICuHkAaDeCsDoBw@s@sHsNG[XeAEa@_E}Ag@@aAj@uAOe@R}@xAM~C}ArEiBzCaBnAa@n@cAlWWnAyAfCSrAD`HdAhHErCc@~DoBtF{C`Ek@ZkAUqDmDwFwBaEPuGrBcDb@kD`BcAjBsAzJuBpIgDdFyBzBcApBEf@LfDg@pBcFx_@]zAmBfFKx@CtF]tFn@lGC|HOdBaAjFiCjVDxUGdISjCgAlHF`A`AzD?xAStAqCbKcAxE_AlJaAxOc@HyBqA[NOd@KzAF~Ch@tCfA`DK~Bg@j@oGtCa@t@BnAbCnNHzDm@tM{A`NOfE]tCkAnFeErKgDnNyF|MS~@q@~GOzD}AbIc@hAkBzAw@tAu@lDc@zDg@hB{@lAsK|DiAz@gAtAiCzFiAxEq@xI[tLW`@w@JoDs@SRGn@?tBl@`EnAdFdBrF`A|ErAvDhD`GOtBBnBeEb`AaCrIHzAp@dBFbBoDry@f@j@`T`IrAz@nDiEbAHvAoAl@R~@jCdAfEdIr^rA`Dn@zBx@hH`BnKJtCj@G`B_CTKtAvAp\\dHPp@r@nM|C``@xGbn@FpEPLzCq@`@z@FbAGN"
+    },
+    "trainer": false,
+    "commute": false,
+    "manual": false,
+    "private": false,
+    "visibility": "everyone",
+    "flagged": false,
+    "gear_id": null,
+    "start_latlng": [
+        51.325645,
+        11.761685
+    ],
+    "end_latlng": [
+        51.324623,
+        11.760235
+    ],
+    "average_speed": 7.679,
+    "max_speed": 15.36,
+    "average_cadence": 70.9,
+    "average_temp": 10,
+    "average_watts": 184.6,
+    "max_watts": 559,
+    "weighted_average_watts": 197,
+    "device_watts": true,
+    "kilojoules": 866.5,
+    "has_heartrate": true,
+    "average_heartrate": 138.6,
+    "max_heartrate": 155.0,
+    "heartrate_opt_out": false,
+    "display_hide_heartrate_option": true,
+    "elev_high": 207.0,
+    "elev_low": 105.6,
+    "upload_id": 17765066659,
+    "upload_id_str": "17765066659",
+    "external_id": "2025-12-07-115030-ELEMNT_ROAM_418B-15-020251207-7-erp263.fit",
+    "from_accepted_tag": false,
+    "pr_count": 9,
+    "total_photo_count": 0,
+    "has_kudoed": false,
+    "suffer_score": 167.0,
+    "description": "Bandok.com - Give your activities the names they deserve.",
+    "calories": 867.0,
+    "perceived_exertion": null,
+    "prefer_perceived_exertion": null,
+    "segment_efforts": [
+        {
+            "id": 3432739206090279204,
+            "resource_state": 2,
+            "name": "St\u00f6bnitz Mini-Climb",
+            "activity": {
+                "id": 16675637348,
+                "visibility": "everyone",
+                "resource_state": 1
+            },
+            "athlete": {
+                "id": 10043130,
+                "resource_state": 1
+            },
+            "elapsed_time": 67,
+            "moving_time": 67,
+            "start_date": "2025-12-07T11:54:08Z",
+            "start_date_local": "2025-12-07T12:54:08Z",
+            "distance": 399.8,
+            "start_index": 218,
+            "end_index": 285,
+            "average_cadence": 73.0,
+            "device_watts": true,
+            "average_watts": 301.1,
+            "average_heartrate": 142.3,
+            "max_heartrate": 150.0,
+            "segment": {
+                "id": 31287148,
+                "resource_state": 2,
+                "name": "St\u00f6bnitz Mini-Climb",
+                "activity_type": "Ride",
+                "distance": 399.8,
+                "average_grade": 4.9,
+                "maximum_grade": 15.6,
+                "elevation_high": 163.6,
+                "elevation_low": 144.0,
+                "start_latlng": [
+                    51.329517,
+                    11.777677
+                ],
+                "end_latlng": [
+                    51.333033,
+                    11.778759
+                ],
+                "elevation_profile": null,
+                "elevation_profiles": null,
+                "climb_category": 0,
+                "city": "M\u00fccheln",
+                "state": "Saxony-Anhalt",
+                "country": "Germany",
+                "private": false,
+                "hazardous": false,
+                "starred": false
+            },
+            "pr_rank": 3,
+            "achievements": [
+                {
+                    "type_id": 3,
+                    "type": "pr",
+                    "rank": 3
+                },
+                {
+                    "type_id": 7,
+                    "type": "segment_effort_count_leader",
+                    "rank": 1,
+                    "effort_count": 3
+                }
+            ],
+            "visibility": "everyone",
+            "kom_rank": null,
+            "hidden": false
+        },
+        {
+            "id": 3432739206089489700,
+            "resource_state": 2,
+            "name": "Sprint Werkstra\u00dfe",
+            "activity": {
+                "id": 16675637348,
+                "visibility": "everyone",
+                "resource_state": 1
+            },
+            "athlete": {
+                "id": 10043130,
+                "resource_state": 1
+            },
+            "elapsed_time": 80,
+            "moving_time": 80,
+            "start_date": "2025-12-07T12:06:47Z",
+            "start_date_local": "2025-12-07T13:06:47Z",
+            "distance": 687.8,
+            "start_index": 977,
+            "end_index": 1057,
+            "average_cadence": 76.1,
+            "device_watts": true,
+            "average_watts": 174.6,
+            "average_heartrate": 133.4,
+            "max_heartrate": 136.0,
+            "segment": {
+                "id": 17800156,
+                "resource_state": 2,
+                "name": "Sprint Werkstra\u00dfe",
+                "activity_type": "Ride",
+                "distance": 687.8,
+                "average_grade": -1.1,
+                "maximum_grade": 0.0,
+                "elevation_high": 66.4,
+                "elevation_low": 58.8,
+                "start_latlng": [
+                    51.324913,
+                    11.809542
+                ],
+                "end_latlng": [
+                    51.319571,
+                    11.814681
+                ],
+                "elevation_profile": null,
+                "elevation_profiles": null,
+                "climb_category": 0,
+                "city": "M\u00fccheln (Geiseltal)",
+                "state": "Sachsen-Anhalt",
+                "country": "Germany",
+                "private": false,
+                "hazardous": false,
+                "starred": false
+            },
+            "pr_rank": 2,
+            "achievements": [
+                {
+                    "type_id": 3,
+                    "type": "pr",
+                    "rank": 2
+                }
+            ],
+            "visibility": "everyone",
+            "kom_rank": null,
+            "hidden": false
+        },
+        {
+            "id": 3432739206089276708,
+            "resource_state": 2,
+            "name": "M\u00fccheln->Braunsbedra (by KisPaksi)",
+            "activity": {
+                "id": 16675637348,
+                "visibility": "everyone",
+                "resource_state": 1
+            },
+            "athlete": {
+                "id": 10043130,
+                "resource_state": 1
+            },
+            "elapsed_time": 790,
+            "moving_time": 790,
+            "start_date": "2025-12-07T12:12:27Z",
+            "start_date_local": "2025-12-07T13:12:27Z",
+            "distance": 6529.8,
+            "start_index": 1317,
+            "end_index": 2107,
+            "average_cadence": 71.1,
+            "device_watts": true,
+            "average_watts": 195.8,
+            "average_heartrate": 142.2,
+            "max_heartrate": 154.0,
+            "segment": {
+                "id": 14539050,
+                "resource_state": 2,
+                "name": "M\u00fccheln->Braunsbedra (by KisPaksi)",
+                "activity_type": "Ride",
+                "distance": 6529.8,
+                "average_grade": 0.2,
+                "maximum_grade": 6.8,
+                "elevation_high": 130.9,
+                "elevation_low": 104.6,
+                "start_latlng": [
+                    51.306102,
+                    11.813128
+                ],
+                "end_latlng": [
+                    51.297957,
+                    11.896431
+                ],
+                "elevation_profile": null,
+                "elevation_profiles": null,
+                "climb_category": 0,
+                "city": "M\u00fccheln (Geiseltal)",
+                "state": "Sachsen-Anhalt",
+                "country": "Germany",
+                "private": false,
+                "hazardous": false,
+                "starred": false
+            },
+            "pr_rank": 2,
+            "achievements": [
+                {
+                    "type_id": 3,
+                    "type": "pr",
+                    "rank": 2
+                }
+            ],
+            "visibility": "everyone",
+            "kom_rank": null,
+            "hidden": false
+        },
+        {
+            "id": 3432739206089692452,
+            "resource_state": 2,
+            "name": "Neumark Sprint (ohne Kurve)",
+            "activity": {
+                "id": 16675637348,
+                "visibility": "everyone",
+                "resource_state": 1
+            },
+            "athlete": {
+                "id": 10043130,
+                "resource_state": 1
+            },
+            "elapsed_time": 87,
+            "moving_time": 87,
+            "start_date": "2025-12-07T12:23:33Z",
+            "start_date_local": "2025-12-07T13:23:33Z",
+            "distance": 830.6,
+            "start_index": 1983,
+            "end_index": 2070,
+            "average_cadence": 75.4,
+            "device_watts": true,
+            "average_watts": 188.8,
+            "average_heartrate": 137.1,
+            "max_heartrate": 141.0,
+            "segment": {
+                "id": 30692772,
+                "resource_state": 2,
+                "name": "Neumark Sprint (ohne Kurve)",
+                "activity_type": "Ride",
+                "distance": 830.6,
+                "average_grade": -0.2,
+                "maximum_grade": 0.4,
+                "elevation_high": 164.4,
+                "elevation_low": 162.0,
+                "start_latlng": [
+                    51.295271,
+                    11.880992
+                ],
+                "end_latlng": [
+                    51.297169,
+                    11.891478
+                ],
+                "elevation_profile": null,
+                "elevation_profiles": null,
+                "climb_category": 0,
+                "city": "Braunsbedra",
+                "state": "Saxony-Anhalt",
+                "country": "Germany",
+                "private": false,
+                "hazardous": false,
+                "starred": false
+            },
+            "pr_rank": 1,
+            "achievements": [
+                {
+                    "type_id": 3,
+                    "type": "pr",
+                    "rank": 1
+                }
+            ],
+            "visibility": "everyone",
+            "kom_rank": null,
+            "hidden": false
+        },
+        {
+            "id": 3432739206089504036,
+            "resource_state": 2,
+            "name": "Sprint hinter Neumark",
+            "activity": {
+                "id": 16675637348,
+                "visibility": "everyone",
+                "resource_state": 1
+            },
+            "athlete": {
+                "id": 10043130,
+                "resource_state": 1
+            },
+            "elapsed_time": 128,
+            "moving_time": 128,
+            "start_date": "2025-12-07T12:23:38Z",
+            "start_date_local": "2025-12-07T13:23:38Z",
+            "distance": 1226.0,
+            "start_index": 1988,
+            "end_index": 2116,
+            "average_cadence": 72.5,
+            "device_watts": true,
+            "average_watts": 190.2,
+            "average_heartrate": 138.7,
+            "max_heartrate": 142.0,
+            "segment": {
+                "id": 30687843,
+                "resource_state": 2,
+                "name": "Sprint hinter Neumark",
+                "activity_type": "Ride",
+                "distance": 1226.0,
+                "average_grade": -0.5,
+                "maximum_grade": 0.5,
+                "elevation_high": 161.8,
+                "elevation_low": 155.6,
+                "start_latlng": [
+                    51.295611,
+                    11.881187
+                ],
+                "end_latlng": [
+                    51.298101,
+                    11.897619
+                ],
+                "elevation_profile": null,
+                "elevation_profiles": null,
+                "climb_category": 0,
+                "city": "Braunsbedra",
+                "state": "Saxony-Anhalt",
+                "country": "Germany",
+                "private": false,
+                "hazardous": false,
+                "starred": false
+            },
+            "pr_rank": 1,
+            "achievements": [
+                {
+                    "type_id": 3,
+                    "type": "pr",
+                    "rank": 1
+                }
+            ],
+            "visibility": "everyone",
+            "kom_rank": null,
+            "hidden": false
+        },
+        {
+            "id": 3432739206089684260,
+            "resource_state": 2,
+            "name": "Zur\u00fcck zum Berg",
+            "activity": {
+                "id": 16675637348,
+                "visibility": "everyone",
+                "resource_state": 1
+            },
+            "athlete": {
+                "id": 10043130,
+                "resource_state": 1
+            },
+            "elapsed_time": 711,
+            "moving_time": 711,
+            "start_date": "2025-12-07T12:32:19Z",
+            "start_date_local": "2025-12-07T13:32:19Z",
+            "distance": 4784.4,
+            "start_index": 2509,
+            "end_index": 3220,
+            "average_cadence": 69.7,
+            "device_watts": true,
+            "average_watts": 193.6,
+            "average_heartrate": 137.9,
+            "max_heartrate": 147.0,
+            "segment": {
+                "id": 7767478,
+                "resource_state": 2,
+                "name": "Zur\u00fcck zum Berg",
+                "activity_type": "Ride",
+                "distance": 4784.4,
+                "average_grade": 0.8,
+                "maximum_grade": 11.0,
+                "elevation_high": 136.6,
+                "elevation_low": 94.5,
+                "start_latlng": [
+                    51.312581,
+                    11.91845
+                ],
+                "end_latlng": [
+                    51.329351,
+                    11.867267
+                ],
+                "elevation_profile": null,
+                "elevation_profiles": null,
+                "climb_category": 0,
+                "city": "Braunsbedra",
+                "state": "SA",
+                "country": "Germany",
+                "private": false,
+                "hazardous": false,
+                "starred": false
+            },
+            "pr_rank": 1,
+            "achievements": [
+                {
+                    "type_id": 3,
+                    "type": "pr",
+                    "rank": 1
+                }
+            ],
+            "visibility": "everyone",
+            "kom_rank": null,
+            "hidden": false
+        },
+        {
+            "id": 3432739206092040484,
+            "resource_state": 2,
+            "name": "Hilde`s n\u00f6 ich mach mein eigenes Segment",
+            "activity": {
+                "id": 16675637348,
+                "visibility": "everyone",
+                "resource_state": 1
+            },
+            "athlete": {
+                "id": 10043130,
+                "resource_state": 1
+            },
+            "elapsed_time": 1167,
+            "moving_time": 1167,
+            "start_date": "2025-12-07T12:33:19Z",
+            "start_date_local": "2025-12-07T13:33:19Z",
+            "distance": 7524.0,
+            "start_index": 2569,
+            "end_index": 3736,
+            "average_cadence": 70.0,
+            "device_watts": true,
+            "average_watts": 197.8,
+            "average_heartrate": 141.8,
+            "max_heartrate": 155.0,
+            "segment": {
+                "id": 21068045,
+                "resource_state": 2,
+                "name": "Hilde`s n\u00f6 ich mach mein eigenes Segment",
+                "activity_type": "Ride",
+                "distance": 7524.0,
+                "average_grade": 1.2,
+                "maximum_grade": 6.4,
+                "elevation_high": 198.6,
+                "elevation_low": 101.2,
+                "start_latlng": [
+                    51.313976,
+                    11.912694
+                ],
+                "end_latlng": [
+                    51.339944,
+                    11.830791
+                ],
+                "elevation_profile": null,
+                "elevation_profiles": null,
+                "climb_category": 0,
+                "city": "Braunsbedra",
+                "state": "Sachsen-Anhalt",
+                "country": "Germany",
+                "private": false,
+                "hazardous": false,
+                "starred": false
+            },
+            "pr_rank": 1,
+            "achievements": [
+                {
+                    "type_id": 3,
+                    "type": "pr",
+                    "rank": 1
+                }
+            ],
+            "visibility": "everyone",
+            "kom_rank": null,
+            "hidden": false
+        },
+        {
+            "id": 3432739206093312292,
+            "resource_state": 2,
+            "name": "Z\u00e4hnebei\u00dfer Nordseite!",
+            "activity": {
+                "id": 16675637348,
+                "visibility": "everyone",
+                "resource_state": 1
+            },
+            "athlete": {
+                "id": 10043130,
+                "resource_state": 1
+            },
+            "elapsed_time": 390,
+            "moving_time": 390,
+            "start_date": "2025-12-07T12:38:01Z",
+            "start_date_local": "2025-12-07T13:38:01Z",
+            "distance": 2343.5,
+            "start_index": 2851,
+            "end_index": 3241,
+            "average_cadence": 70.0,
+            "device_watts": true,
+            "average_watts": 196.5,
+            "average_heartrate": 139.8,
+            "max_heartrate": 147.0,
+            "segment": {
+                "id": 30687887,
+                "resource_state": 2,
+                "name": "Z\u00e4hnebei\u00dfer Nordseite!",
+                "activity_type": "Ride",
+                "distance": 2343.5,
+                "average_grade": 1.6,
+                "maximum_grade": 4.1,
+                "elevation_high": 198.0,
+                "elevation_low": 159.0,
+                "start_latlng": [
+                    51.325359,
+                    11.896968
+                ],
+                "end_latlng": [
+                    51.329707,
+                    11.865192
+                ],
+                "elevation_profile": null,
+                "elevation_profiles": null,
+                "climb_category": 0,
+                "city": "Braunsbedra",
+                "state": "Saxony-Anhalt",
+                "country": "Germany",
+                "private": false,
+                "hazardous": false,
+                "starred": false
+            },
+            "pr_rank": 1,
+            "achievements": [
+                {
+                    "type_id": 3,
+                    "type": "pr",
+                    "rank": 1
+                }
+            ],
+            "visibility": "everyone",
+            "kom_rank": null,
+            "hidden": false
+        },
+        {
+            "id": 3432739206090821924,
+            "resource_state": 2,
+            "name": "Weinberg Ostseite",
+            "activity": {
+                "id": 16675637348,
+                "visibility": "everyone",
+                "resource_state": 1
+            },
+            "athlete": {
+                "id": 10043130,
+                "resource_state": 1
+            },
+            "elapsed_time": 316,
+            "moving_time": 316,
+            "start_date": "2025-12-07T12:47:31Z",
+            "start_date_local": "2025-12-07T13:47:31Z",
+            "distance": 1823.4,
+            "start_index": 3421,
+            "end_index": 3737,
+            "average_cadence": 68.7,
+            "device_watts": true,
+            "average_watts": 205.5,
+            "average_heartrate": 146.7,
+            "max_heartrate": 155.0,
+            "segment": {
+                "id": 4791215,
+                "resource_state": 2,
+                "name": "Weinberg Ostseite",
+                "activity_type": "Ride",
+                "distance": 1823.4,
+                "average_grade": 2.3,
+                "maximum_grade": 11.9,
+                "elevation_high": 191.7,
+                "elevation_low": 148.8,
+                "start_latlng": [
+                    51.331782,
+                    11.851808
+                ],
+                "end_latlng": [
+                    51.340024,
+                    11.830777
+                ],
+                "elevation_profile": null,
+                "elevation_profiles": null,
+                "climb_category": 0,
+                "city": "Bad Lauchst\u00e4dt",
+                "state": "SA",
+                "country": "Germany",
+                "private": false,
+                "hazardous": false,
+                "starred": false
+            },
+            "pr_rank": 1,
+            "achievements": [
+                {
+                    "type_id": 3,
+                    "type": "pr",
+                    "rank": 1
+                }
+            ],
+            "visibility": "everyone",
+            "kom_rank": null,
+            "hidden": false
+        }
+    ],
+    "splits_metric": [
+        {
+            "distance": 1005.8,
+            "elapsed_time": 193,
+            "elevation_difference": -0.6,
+            "moving_time": 193,
+            "split": 1,
+            "average_speed": 5.21,
+            "average_grade_adjusted_speed": 5.21,
+            "average_heartrate": 129.27678571428572,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1004.5,
+            "elapsed_time": 142,
+            "elevation_difference": 8.2,
+            "moving_time": 142,
+            "split": 2,
+            "average_speed": 7.07,
+            "average_grade_adjusted_speed": 7.53,
+            "average_heartrate": 138.46478873239437,
+            "pace_zone": 0
+        },
+        {
+            "distance": 990.4,
+            "elapsed_time": 91,
+            "elevation_difference": -10.4,
+            "moving_time": 91,
+            "split": 3,
+            "average_speed": 10.88,
+            "average_grade_adjusted_speed": 10.91,
+            "average_heartrate": 138.6813186813187,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1007.7,
+            "elapsed_time": 105,
+            "elevation_difference": -7.8,
+            "moving_time": 105,
+            "split": 4,
+            "average_speed": 9.6,
+            "average_grade_adjusted_speed": 9.47,
+            "average_heartrate": 132.41904761904763,
+            "pace_zone": 0
+        },
+        {
+            "distance": 992.6,
+            "elapsed_time": 98,
+            "elevation_difference": -3.4,
+            "moving_time": 98,
+            "split": 5,
+            "average_speed": 10.13,
+            "average_grade_adjusted_speed": 10.18,
+            "average_heartrate": 134.89795918367346,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1003.8,
+            "elapsed_time": 129,
+            "elevation_difference": -1.6,
+            "moving_time": 129,
+            "split": 6,
+            "average_speed": 7.78,
+            "average_grade_adjusted_speed": 7.81,
+            "average_heartrate": 142.13178294573643,
+            "pace_zone": 0
+        },
+        {
+            "distance": 997.5,
+            "elapsed_time": 126,
+            "elevation_difference": 3.4,
+            "moving_time": 126,
+            "split": 7,
+            "average_speed": 7.92,
+            "average_grade_adjusted_speed": 8.03,
+            "average_heartrate": 143.76190476190476,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1006.8,
+            "elapsed_time": 121,
+            "elevation_difference": -4.4,
+            "moving_time": 121,
+            "split": 8,
+            "average_speed": 8.32,
+            "average_grade_adjusted_speed": 8.27,
+            "average_heartrate": 136.47107438016528,
+            "pace_zone": 0
+        },
+        {
+            "distance": 992.6,
+            "elapsed_time": 114,
+            "elevation_difference": -19.2,
+            "moving_time": 114,
+            "split": 9,
+            "average_speed": 8.71,
+            "average_grade_adjusted_speed": 8.53,
+            "average_heartrate": 133.640350877193,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1000.6,
+            "elapsed_time": 112,
+            "elevation_difference": -7.0,
+            "moving_time": 112,
+            "split": 10,
+            "average_speed": 8.93,
+            "average_grade_adjusted_speed": 8.86,
+            "average_heartrate": 141.75,
+            "pace_zone": 0
+        },
+        {
+            "distance": 999.3,
+            "elapsed_time": 120,
+            "elevation_difference": -2.4,
+            "moving_time": 120,
+            "split": 11,
+            "average_speed": 8.33,
+            "average_grade_adjusted_speed": 8.31,
+            "average_heartrate": 139.625,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1006.9,
+            "elapsed_time": 121,
+            "elevation_difference": 1.2,
+            "moving_time": 121,
+            "split": 12,
+            "average_speed": 8.32,
+            "average_grade_adjusted_speed": 8.42,
+            "average_heartrate": 145.47107438016528,
+            "pace_zone": 0
+        },
+        {
+            "distance": 997.2,
+            "elapsed_time": 118,
+            "elevation_difference": -2.6,
+            "moving_time": 118,
+            "split": 13,
+            "average_speed": 8.45,
+            "average_grade_adjusted_speed": 8.42,
+            "average_heartrate": 143.84745762711864,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1000.2,
+            "elapsed_time": 123,
+            "elevation_difference": 4.4,
+            "moving_time": 123,
+            "split": 14,
+            "average_speed": 8.13,
+            "average_grade_adjusted_speed": 8.33,
+            "average_heartrate": 147.78861788617886,
+            "pace_zone": 0
+        },
+        {
+            "distance": 996.2,
+            "elapsed_time": 128,
+            "elevation_difference": 7.2,
+            "moving_time": 128,
+            "split": 15,
+            "average_speed": 7.78,
+            "average_grade_adjusted_speed": 7.91,
+            "average_heartrate": 144.1640625,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1002.7,
+            "elapsed_time": 134,
+            "elevation_difference": 2.6,
+            "moving_time": 134,
+            "split": 16,
+            "average_speed": 7.48,
+            "average_grade_adjusted_speed": 7.53,
+            "average_heartrate": 136.77611940298507,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1004.9,
+            "elapsed_time": 108,
+            "elevation_difference": -5.4,
+            "moving_time": 108,
+            "split": 17,
+            "average_speed": 9.3,
+            "average_grade_adjusted_speed": 9.23,
+            "average_heartrate": 136.77777777777777,
+            "pace_zone": 0
+        },
+        {
+            "distance": 992.9,
+            "elapsed_time": 115,
+            "elevation_difference": -0.4,
+            "moving_time": 115,
+            "split": 18,
+            "average_speed": 8.63,
+            "average_grade_adjusted_speed": 8.65,
+            "average_heartrate": 139.34782608695653,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1002.5,
+            "elapsed_time": 115,
+            "elevation_difference": -5.0,
+            "moving_time": 115,
+            "split": 19,
+            "average_speed": 8.72,
+            "average_grade_adjusted_speed": 8.65,
+            "average_heartrate": 131.23478260869564,
+            "pace_zone": 0
+        },
+        {
+            "distance": 998.4,
+            "elapsed_time": 108,
+            "elevation_difference": -6.0,
+            "moving_time": 108,
+            "split": 20,
+            "average_speed": 9.24,
+            "average_grade_adjusted_speed": 9.15,
+            "average_heartrate": 130.7685185185185,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1001.2,
+            "elapsed_time": 134,
+            "elevation_difference": 2.0,
+            "moving_time": 134,
+            "split": 21,
+            "average_speed": 7.47,
+            "average_grade_adjusted_speed": 7.54,
+            "average_heartrate": 132.94776119402985,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1001.0,
+            "elapsed_time": 130,
+            "elevation_difference": 3.0,
+            "moving_time": 130,
+            "split": 22,
+            "average_speed": 7.7,
+            "average_grade_adjusted_speed": 7.76,
+            "average_heartrate": 137.83076923076922,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1001.7,
+            "elapsed_time": 133,
+            "elevation_difference": 3.8,
+            "moving_time": 133,
+            "split": 23,
+            "average_speed": 7.53,
+            "average_grade_adjusted_speed": 7.61,
+            "average_heartrate": 133.45112781954887,
+            "pace_zone": 0
+        },
+        {
+            "distance": 992.7,
+            "elapsed_time": 161,
+            "elevation_difference": 15.4,
+            "moving_time": 161,
+            "split": 24,
+            "average_speed": 6.17,
+            "average_grade_adjusted_speed": 6.5,
+            "average_heartrate": 141.3416149068323,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1003.7,
+            "elapsed_time": 170,
+            "elevation_difference": 17.4,
+            "moving_time": 170,
+            "split": 25,
+            "average_speed": 5.9,
+            "average_grade_adjusted_speed": 6.2,
+            "average_heartrate": 138.58235294117648,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1001.2,
+            "elapsed_time": 147,
+            "elevation_difference": 10.8,
+            "moving_time": 147,
+            "split": 26,
+            "average_speed": 6.81,
+            "average_grade_adjusted_speed": 7.01,
+            "average_heartrate": 142.44897959183675,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1001.4,
+            "elapsed_time": 146,
+            "elevation_difference": 7.2,
+            "moving_time": 146,
+            "split": 27,
+            "average_speed": 6.86,
+            "average_grade_adjusted_speed": 7.01,
+            "average_heartrate": 145.58904109589042,
+            "pace_zone": 0
+        },
+        {
+            "distance": 999.2,
+            "elapsed_time": 197,
+            "elevation_difference": 28.4,
+            "moving_time": 197,
+            "split": 28,
+            "average_speed": 5.07,
+            "average_grade_adjusted_speed": 5.65,
+            "average_heartrate": 146.8020304568528,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1000.9,
+            "elapsed_time": 149,
+            "elevation_difference": 10.0,
+            "moving_time": 149,
+            "split": 29,
+            "average_speed": 6.72,
+            "average_grade_adjusted_speed": 7.14,
+            "average_heartrate": 144.43624161073825,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1003.7,
+            "elapsed_time": 89,
+            "elevation_difference": -58.0,
+            "moving_time": 89,
+            "split": 30,
+            "average_speed": 11.28,
+            "average_grade_adjusted_speed": 10.2,
+            "average_heartrate": 125.62921348314607,
+            "pace_zone": 0
+        },
+        {
+            "distance": 991.1,
+            "elapsed_time": 143,
+            "elevation_difference": 0.6,
+            "moving_time": 143,
+            "split": 31,
+            "average_speed": 6.93,
+            "average_grade_adjusted_speed": 7.01,
+            "average_heartrate": 132.46153846153845,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1003.3,
+            "elapsed_time": 149,
+            "elevation_difference": -0.6,
+            "moving_time": 149,
+            "split": 32,
+            "average_speed": 6.73,
+            "average_grade_adjusted_speed": 6.73,
+            "average_heartrate": 130.06711409395973,
+            "pace_zone": 0
+        },
+        {
+            "distance": 999.8,
+            "elapsed_time": 166,
+            "elevation_difference": 10.8,
+            "moving_time": 162,
+            "split": 33,
+            "average_speed": 6.17,
+            "average_grade_adjusted_speed": 6.41,
+            "average_heartrate": 132.98757763975155,
+            "pace_zone": 0
+        },
+        {
+            "distance": 999.9,
+            "elapsed_time": 163,
+            "elevation_difference": -9.8,
+            "moving_time": 163,
+            "split": 34,
+            "average_speed": 6.13,
+            "average_grade_adjusted_speed": 6.28,
+            "average_heartrate": 141.04907975460122,
+            "pace_zone": 0
+        },
+        {
+            "distance": 998.5,
+            "elapsed_time": 128,
+            "elevation_difference": 5.0,
+            "moving_time": 128,
+            "split": 35,
+            "average_speed": 7.8,
+            "average_grade_adjusted_speed": 8.06,
+            "average_heartrate": 141.3046875,
+            "pace_zone": 0
+        },
+        {
+            "distance": 559.1,
+            "elapsed_time": 86,
+            "elevation_difference": -2.4,
+            "moving_time": 86,
+            "split": 36,
+            "average_speed": 6.5,
+            "average_grade_adjusted_speed": 6.52,
+            "average_heartrate": 142.54117647058823,
+            "pace_zone": 0
+        }
+    ],
+    "splits_standard": [
+        {
+            "distance": 1611.4,
+            "elapsed_time": 276,
+            "elevation_difference": 8.4,
+            "moving_time": 276,
+            "split": 1,
+            "average_speed": 5.84,
+            "average_grade_adjusted_speed": 6.06,
+            "average_heartrate": 131.83076923076922,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1614.1,
+            "elapsed_time": 175,
+            "elevation_difference": -15.0,
+            "moving_time": 175,
+            "split": 2,
+            "average_speed": 9.22,
+            "average_grade_adjusted_speed": 9.21,
+            "average_heartrate": 139.41714285714286,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1612.1,
+            "elapsed_time": 162,
+            "elevation_difference": -7.0,
+            "moving_time": 162,
+            "split": 3,
+            "average_speed": 9.95,
+            "average_grade_adjusted_speed": 9.95,
+            "average_heartrate": 133.39506172839506,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1601.8,
+            "elapsed_time": 195,
+            "elevation_difference": -1.6,
+            "moving_time": 195,
+            "split": 4,
+            "average_speed": 8.21,
+            "average_grade_adjusted_speed": 8.25,
+            "average_heartrate": 141.37948717948717,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1612.9,
+            "elapsed_time": 202,
+            "elevation_difference": -1.6,
+            "moving_time": 202,
+            "split": 5,
+            "average_speed": 7.98,
+            "average_grade_adjusted_speed": 8.0,
+            "average_heartrate": 139.76237623762376,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1611.9,
+            "elapsed_time": 188,
+            "elevation_difference": -22.8,
+            "moving_time": 188,
+            "split": 6,
+            "average_speed": 8.57,
+            "average_grade_adjusted_speed": 8.45,
+            "average_heartrate": 136.63829787234042,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1606.7,
+            "elapsed_time": 183,
+            "elevation_difference": -5.8,
+            "moving_time": 183,
+            "split": 7,
+            "average_speed": 8.78,
+            "average_grade_adjusted_speed": 8.77,
+            "average_heartrate": 140.65027322404373,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1611.1,
+            "elapsed_time": 195,
+            "elevation_difference": -0.4,
+            "moving_time": 195,
+            "split": 8,
+            "average_speed": 8.26,
+            "average_grade_adjusted_speed": 8.28,
+            "average_heartrate": 145.47179487179488,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1609.5,
+            "elapsed_time": 196,
+            "elevation_difference": 6.4,
+            "moving_time": 196,
+            "split": 9,
+            "average_speed": 8.21,
+            "average_grade_adjusted_speed": 8.36,
+            "average_heartrate": 146.9030612244898,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1608.4,
+            "elapsed_time": 215,
+            "elevation_difference": 6.8,
+            "moving_time": 215,
+            "split": 10,
+            "average_speed": 7.48,
+            "average_grade_adjusted_speed": 7.55,
+            "average_heartrate": 138.16744186046512,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1608.0,
+            "elapsed_time": 173,
+            "elevation_difference": -6.6,
+            "moving_time": 173,
+            "split": 11,
+            "average_speed": 9.29,
+            "average_grade_adjusted_speed": 9.25,
+            "average_heartrate": 138.89595375722544,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1612.6,
+            "elapsed_time": 187,
+            "elevation_difference": -8.2,
+            "moving_time": 187,
+            "split": 12,
+            "average_speed": 8.62,
+            "average_grade_adjusted_speed": 8.55,
+            "average_heartrate": 132.32620320855614,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1603.0,
+            "elapsed_time": 198,
+            "elevation_difference": 0.2,
+            "moving_time": 198,
+            "split": 13,
+            "average_speed": 8.1,
+            "average_grade_adjusted_speed": 8.13,
+            "average_heartrate": 132.010101010101,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1613.0,
+            "elapsed_time": 211,
+            "elevation_difference": 4.6,
+            "moving_time": 211,
+            "split": 14,
+            "average_speed": 7.64,
+            "average_grade_adjusted_speed": 7.7,
+            "average_heartrate": 136.14691943127963,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1604.4,
+            "elapsed_time": 242,
+            "elevation_difference": 17.4,
+            "moving_time": 242,
+            "split": 15,
+            "average_speed": 6.63,
+            "average_grade_adjusted_speed": 6.88,
+            "average_heartrate": 139.30165289256198,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1608.9,
+            "elapsed_time": 266,
+            "elevation_difference": 25.8,
+            "moving_time": 266,
+            "split": 16,
+            "average_speed": 6.05,
+            "average_grade_adjusted_speed": 6.32,
+            "average_heartrate": 139.796992481203,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1613.3,
+            "elapsed_time": 246,
+            "elevation_difference": 25.0,
+            "moving_time": 246,
+            "split": 17,
+            "average_speed": 6.56,
+            "average_grade_adjusted_speed": 6.92,
+            "average_heartrate": 145.4308943089431,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1612.0,
+            "elapsed_time": 274,
+            "elevation_difference": 23.8,
+            "moving_time": 274,
+            "split": 18,
+            "average_speed": 5.88,
+            "average_grade_adjusted_speed": 6.31,
+            "average_heartrate": 146.1058394160584,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1606.6,
+            "elapsed_time": 169,
+            "elevation_difference": -64.4,
+            "moving_time": 169,
+            "split": 19,
+            "average_speed": 9.51,
+            "average_grade_adjusted_speed": 8.87,
+            "average_heartrate": 127.83431952662721,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1609.3,
+            "elapsed_time": 245,
+            "elevation_difference": 7.4,
+            "moving_time": 245,
+            "split": 20,
+            "average_speed": 6.57,
+            "average_grade_adjusted_speed": 6.67,
+            "average_heartrate": 130.73061224489797,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1607.0,
+            "elapsed_time": 281,
+            "elevation_difference": 12.2,
+            "moving_time": 277,
+            "split": 21,
+            "average_speed": 5.8,
+            "average_grade_adjusted_speed": 6.08,
+            "average_heartrate": 138.8840579710145,
+            "pace_zone": 0
+        },
+        {
+            "distance": 1609.0,
+            "elapsed_time": 200,
+            "elevation_difference": -4.4,
+            "moving_time": 200,
+            "split": 22,
+            "average_speed": 8.05,
+            "average_grade_adjusted_speed": 8.17,
+            "average_heartrate": 141.05,
+            "pace_zone": 0
+        },
+        {
+            "distance": 154.9,
+            "elapsed_time": 33,
+            "elevation_difference": -5.8,
+            "moving_time": 33,
+            "split": 23,
+            "average_speed": 4.69,
+            "average_grade_adjusted_speed": 4.41,
+            "average_heartrate": 139.78125,
+            "pace_zone": 0
+        }
+    ],
+    "laps": [
+        {
+            "id": 59463396197,
+            "resource_state": 2,
+            "name": "Lap 1",
+            "activity": {
+                "id": 16675637348,
+                "visibility": "everyone",
+                "resource_state": 1
+            },
+            "athlete": {
+                "id": 10043130,
+                "resource_state": 1
+            },
+            "elapsed_time": 4713,
+            "moving_time": 4709,
+            "start_date": "2025-12-07T11:50:30Z",
+            "start_date_local": "2025-12-07T12:50:30Z",
+            "distance": 35569.0,
+            "average_speed": 7.55,
+            "max_speed": 15.36,
+            "lap_index": 1,
+            "split": 1,
+            "start_index": 0,
+            "end_index": 4708,
+            "total_elevation_gain": 269.8,
+            "average_cadence": 70.9,
+            "device_watts": true,
+            "average_watts": 184.6,
+            "average_heartrate": 138.6,
+            "max_heartrate": 155.0
+        }
+    ],
+    "photos": {
+        "primary": null,
+        "count": 0
+    },
+    "stats_visibility": [
+        {
+            "type": "heart_rate",
+            "visibility": "everyone"
+        },
+        {
+            "type": "pace",
+            "visibility": "everyone"
+        },
+        {
+            "type": "power",
+            "visibility": "everyone"
+        },
+        {
+            "type": "speed",
+            "visibility": "everyone"
+        },
+        {
+            "type": "calories",
+            "visibility": "everyone"
+        }
+    ],
+    "hide_from_home": false,
+    "embed_token": "f511f7c781bd9cfc845468a277c93f3959679d92",
+    "available_zones": [
+        "heartrate",
+        "power"
+    ]
+}

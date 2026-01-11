@@ -1,0 +1,33 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.venv/
+env/
+venv/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+server.log
+
+# Database
+*.db
+strava_data.db
+*.sqlite
+
+# OS specific
+.DS_Store
+
+# Debug/Temp files
+debug_*.py
+check_bad_activity.py
+force_analyze.py

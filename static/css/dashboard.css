@@ -1,0 +1,379 @@
+:root {
+    --bg-color: #0d0d12;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --accent-color: #fc4c02;
+    /* Strava Orange */
+    --accent-glow: rgba(252, 76, 2, 0.3);
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(20px);
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 3rem 2rem;
+    overflow-x: hidden;
+}
+
+.dashboard-container {
+    max-width: 1600px;
+    /* Wider container for grid */
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.logo span {
+    color: var(--accent-color);
+    text-shadow: 0 0 20px var(--accent-glow);
+}
+
+.sync-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.sync-btn {
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    backdrop-filter: var(--glass-blur);
+    transition: all 0.3s ease;
+}
+
+.sync-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+.sync-btn svg {
+    transition: transform 0.6s ease;
+}
+
+.sync-btn:hover svg {
+    transform: rotate(180deg);
+    color: var(--accent-color);
+}
+
+.sync-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #10b981;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spin-animation {
+    display: inline-block;
+    animation: spin 1s linear infinite;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    /* Two rows */
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.ai-insights-card {
+    grid-column: span 3;
+    /* Take full width on bottom row */
+    min-height: auto;
+    height: auto;
+    background: linear-gradient(135deg, rgba(252, 76, 2, 0.05) 0%, rgba(255, 255, 255, 0.03) 100%);
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.insight-metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+}
+
+.insight-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+}
+
+.insight-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.insight-value span {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-left: 0.2rem;
+}
+
+.ai-summary-box {
+    grid-column: span 4;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.ai-summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.trend-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.trend-badge.negative {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.session-tier {
+    padding: 0.2rem 0.6rem;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* Base Card Style */
+.metric-card {
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem;
+    border-radius: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: var(--card-shadow);
+    height: 600px;
+    /* Fixed height for consistency and to stop chart loops */
+    overflow: hidden;
+}
+
+.metric-card:hover {
+    border-color: rgba(252, 76, 2, 0.4);
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.card-title {
+    font-size: 0.8125rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    white-space: nowrap;
+}
+
+.card-title::after {
+    content: '';
+    height: 1px;
+    flex-grow: 1;
+    background: linear-gradient(90deg, var(--border-color), transparent);
+}
+
+/* Summary Metrics Formatting */
+.card-header-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.total-main {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+}
+
+.total-main span {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-left: 0.2rem;
+}
+
+.header-details {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.h-detail-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.h-detail-label {
+    font-size: 0.6rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.h-detail-value {
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.h-detail-value span {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Table Styles */
+.activity-table-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    border-radius: 12px;
+    margin: 0.5rem -0.5rem 0 -0.5rem;
+    padding: 0 0.5rem;
+}
+
+.activity-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.activity-table th {
+    padding: 1rem 0.5rem;
+    font-size: 0.675rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    position: sticky;
+    top: 0;
+    background: var(--bg-color);
+    /* To cover scrolling content */
+    z-index: 10;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.activity-table td {
+    padding: 1rem 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Align numeric data right */
+.activity-table th:not(:first-child),
+.activity-table td:not(:first-child) {
+    text-align: right;
+}
+
+.activity-table tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.activity-table tr:last-child td {
+    border-bottom: none;
+}
+
+.type-tag {
+    padding: 0.25rem 0.5rem;
+    background: rgba(252, 76, 2, 0.1);
+    color: var(--accent-color);
+    border: 1px solid rgba(252, 76, 2, 0.2);
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .metric-card {
+        height: auto;
+        min-height: 500px;
+    }
+}
