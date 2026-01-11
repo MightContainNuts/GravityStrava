@@ -140,13 +140,13 @@ header {
 .insight-metric {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start !important;
+    text-align: left !important;
     gap: 0.5rem;
 }
 
 .insight-label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -154,12 +154,12 @@ header {
 }
 
 .insight-value {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 800;
 }
 
 .insight-value span {
-    font-size: 1rem;
+    font-size: 0.7rem;
     color: var(--text-secondary);
     font-weight: 500;
     margin-left: 0.2rem;
@@ -260,7 +260,7 @@ header {
 }
 
 .total-main {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 800;
     letter-spacing: -0.04em;
     line-height: 1;
@@ -281,25 +281,26 @@ header {
 .h-detail-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start !important;
+    text-align: left !important;
+    width: 100%;
 }
 
 .h-detail-label {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     color: var(--text-secondary);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: 600;
-}
-
-.h-detail-value {
-    font-size: 1.125rem;
+    letter-spacing: 0.1em;
     font-weight: 700;
 }
 
+.h-detail-value {
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
 .h-detail-value span {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: var(--text-secondary);
     font-weight: 500;
 }

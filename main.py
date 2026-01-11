@@ -330,8 +330,8 @@ def get_yearly_zones(session: Session = Depends(get_session)):
 async def get_all_time_power_stats(session: Session = Depends(get_session)):
     """Fetch all-time peak power metrics across all analyzed activities, with metadata fallback."""
     # 1. Start with Analyzed Peaks (Rolling Segments)
-    # Include all types that might have power: Ride, VirtualRide, EBikeRide, Rowing
-    valid_types = ['Ride', 'VirtualRide', 'EBikeRide', 'Rowing', 'Workout']
+    # Include all types that might have power: Ride, VirtualRide, EBikeRide
+    valid_types = ['Ride', 'VirtualRide', 'EBikeRide']
     statement = select(Activity, ActivityAnalysis).join(ActivityAnalysis).where(Activity.type.in_(valid_types))
     results = session.exec(statement).all()
     
@@ -348,23 +348,24 @@ async def get_all_time_power_stats(session: Session = Depends(get_session)):
         for dur in ["peak_1min", "peak_5min", "peak_20min", "peak_60min"]:
             val = getattr(analysis, dur)
             if val and val > stats[dur]["val"]:
-                stats[dur] = {"val": val, "date": activity.start_date, "id": activity.id}
+                stats[dur] = {"val": val, "date": activity.start_date, "id": activity.strava_id}
         
         # Sustained work capacity: Highest average power for any ride >= 60 minutes
         if activity.moving_time >= 3600 and (analysis.avg_power or 0) > 0:
             if analysis.avg_power > stats["max_avg_p"]["val"]:
-                stats["max_avg_p"] = {"val": analysis.avg_power, "date": activity.start_date, "id": activity.id}
+                stats["max_avg_p"] = {"val": analysis.avg_power, "date": activity.start_date, "id": activity.strava_id}
                 
     # 2. Metadata Fallback: Check ALL Rides (even unanalyzed ones) for Highest Average Power
     all_rides_stmt = select(Activity).where(
         Activity.type.in_(valid_types),
         Activity.moving_time >= 3600,
-        Activity.average_watts != None
+        Activity.average_watts != None,
+        Activity.id.not_in(select(ActivityAnalysis.activity_id))
     )
     all_rides = session.exec(all_rides_stmt).all()
     for ride in all_rides:
         if ride.average_watts > stats["max_avg_p"]["val"]:
-            stats["max_avg_p"] = {"val": ride.average_watts, "date": ride.start_date, "id": ride.id}
+            stats["max_avg_p"] = {"val": ride.average_watts, "date": ride.start_date, "id": ride.strava_id}
 
     return stats
 

@@ -6,12 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GravityStrato | Dashboard</title>
     <!-- Cache-busting link for CSS -->
-    <link rel="stylesheet" href="/static/css/dashboard.css?v=2.1.0">
+    <link rel="stylesheet" href="/static/css/dashboard.css?v=4.0.0">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* CRITICAL: Force Alignment Override */
+        .h-detail-item,
+        .insight-metric {
+            align-items: flex-start !important;
+            text-align: left !important;
+            width: 100% !important;
+        }
+
+        .insight-value,
+        .total-main,
+        .h-detail-value {
+            font-size: 1.1rem !important;
+            font-weight: 800 !important;
+        }
+
+        .insight-label,
+        .h-detail-label {
+            font-size: 0.7rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.1em !important;
+            font-weight: 700 !important;
+        }
+
         .pr-card {
             grid-column: span 3;
             height: auto;
@@ -195,7 +218,7 @@
             </div>
 
             <!-- Training Zones Distribution -->
-            <div class="metric-card pr-card">
+            <div class="metric-card pr-card" style="display: none;">
                 <div class="card-title">Yearly Training Intensity</div>
                 <div class="zones-container">
                     <div class="zone-box">
@@ -285,7 +308,7 @@
                             Endurance Threshold</div>
                     </div>
                     <div class="insight-metric">
-                        <div class="insight-label">Highest Avg Power</div>
+                        <div class="insight-label">Cycling Highest Avg Power</div>
                         <div class="insight-value" id="pwr-max-avg">—<span>W</span></div>
                         <div class="insight-label" id="pwr-max-avg-date" style="font-size: 0.75rem; opacity: 0.7;">Rides
                             ≥ 60 min</div>
@@ -624,10 +647,15 @@
                     const pwrRes = await fetch('/activities/power-stats');
                     const pwr = await pwrRes.json();
 
-                    const updatePwr = (id, val, date) => {
+                    const updatePwr = (id, val, date, actId) => {
                         const el = document.getElementById(id);
                         if (el && val > 0) {
-                            el.innerHTML = `${val.toFixed(0)}<span>W</span>`;
+                            if (actId) {
+                                el.innerHTML = `<a href="https://www.strava.com/activities/${actId}" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.3); transition: all 0.2s;">${val.toFixed(0)}<span>W</span></a>`;
+                            } else {
+                                el.innerHTML = `${val.toFixed(0)}<span>W</span>`;
+                            }
+
                             const label = document.getElementById(`${id}-date`);
                             if (date && label && !label.innerText.includes('•')) {
                                 const dStr = new Date(date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
@@ -636,11 +664,11 @@
                         }
                     };
 
-                    updatePwr('pwr-1min', pwr.peak_1min.val, pwr.peak_1min.date);
-                    updatePwr('pwr-5min', pwr.peak_5min.val, pwr.peak_5min.date);
-                    updatePwr('pwr-20min', pwr.peak_20min.val, pwr.peak_20min.date);
-                    updatePwr('pwr-60min', pwr.peak_60min.val, pwr.peak_60min.date);
-                    updatePwr('pwr-max-avg', pwr.max_avg_p.val, pwr.max_avg_p.date);
+                    updatePwr('pwr-1min', pwr.peak_1min.val, pwr.peak_1min.date, pwr.peak_1min.id);
+                    updatePwr('pwr-5min', pwr.peak_5min.val, pwr.peak_5min.date, pwr.peak_5min.id);
+                    updatePwr('pwr-20min', pwr.peak_20min.val, pwr.peak_20min.date, pwr.peak_20min.id);
+                    updatePwr('pwr-60min', pwr.peak_60min.val, pwr.peak_60min.date, pwr.peak_60min.id);
+                    updatePwr('pwr-max-avg', pwr.max_avg_p.val, pwr.max_avg_p.date, pwr.max_avg_p.id);
                 } catch (e) { console.error("Power profile error:", e); }
 
                 // 7. AI Insights

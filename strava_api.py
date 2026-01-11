@@ -331,7 +331,7 @@ class StravaClient:
 
     async def get_power_stats_internal(self) -> dict:
         """Internal helper to get power bests without importing from main.py."""
-        valid_types = ['Ride', 'VirtualRide', 'EBikeRide', 'Rowing', 'Workout']
+        valid_types = ['Ride', 'VirtualRide', 'EBikeRide']
         
         # 1. Analyzed Peaks
         statement = select(Activity, ActivityAnalysis).join(ActivityAnalysis).where(Activity.type.in_(valid_types))
@@ -386,7 +386,7 @@ class StravaClient:
         print(f"Current Records (from stats): 1m={p1:.0f}W, 20m={p20:.0f}W, 60m={p60:.0f}W")
         
         # Find candidates: Rides with power that HAVEN'T been analyzed yet
-        valid_types = ['Ride', 'VirtualRide', 'EBikeRide', 'Rowing', 'Workout']
+        valid_types = ['Ride', 'VirtualRide', 'EBikeRide']
         stmt = select(Activity).where(
             Activity.type.in_(valid_types),
             Activity.average_watts != None,
