@@ -292,6 +292,28 @@ async def get_fitness_trends(session: Session = Depends(get_session)):
         trends["official_w_kg"] = float(current_ftp) / float(trends["latest_weight"])
     else:
         trends["official_w_kg"] = 0.0
+    
+    # Validation/Fallback for Fitness Level
+    if not trends["fitness_level"] and trends["official_w_kg"] > 0:
+        # Estimate VO2max from W/kg (FTP based)
+        # Formula: (10.8 * (W_FTP_kg / 0.85)) + 7
+        # Assumes FTP is ~85% of 5-min max power (MAP)
+        est_map_wkg = trends["official_w_kg"] / 0.85
+        trends["fitness_level"] = int((10.8 * est_map_wkg) + 7)
+
+    # Recovery Score Calculation (TSB based)
+    dtl_stmt = select(DailyTrainingLoad).order_by(DailyTrainingLoad.date.desc())
+    latest_load = session.exec(dtl_stmt).first()
+    trends["recovery_score"] = None
+    if latest_load:
+        # Normalize TSB to 0-100 score
+        # Adjusted range to handle heavy training blocks
+        # TSB -60 (Deep Fatigue) -> 0%
+        # TSB +30 (Very Fresh) -> 100%
+        # Range of 90pts
+        tsb = latest_load.tsb
+        score = int(min(100, max(0, ((tsb + 60) / 90) * 100)))
+        trends["recovery_score"] = score
 
     return trends
 

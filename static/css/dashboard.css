@@ -219,7 +219,7 @@ header {
     gap: 1.5rem;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     box-shadow: var(--card-shadow);
-    height: 600px;
+    height: 500px;
     /* Fixed height for consistency and to stop chart loops */
     overflow: hidden;
 }

@@ -348,6 +348,10 @@
                         <div class="insight-label">Fitness Score</div>
                         <div class="insight-value" id="trend-vo2">—<span>pts</span></div>
                     </div>
+                    <div class="insight-metric" id="recovery-score-card" style="display: none;">
+                        <div class="insight-label">Recovery Score</div>
+                        <div class="insight-value" id="trend-recovery">—<span>%</span></div>
+                    </div>
                     <div class="ai-summary-box">
                         <div class="ai-summary-header">
                             <span class="insight-label">Latest Session Feedback</span>
@@ -547,16 +551,17 @@
 
                 // 4. Personal Best Efforts (All-Time)
                 try {
-                    let longestRide = { distance: 0, date: null };
-                    let biggestClimb = { elev: 0, date: null };
-                    let maxWatts = { watts: 0, date: null };
+                    let longestRide = { distance: 0, date: null, id: null };
+                    let biggestClimb = { elev: 0, date: null, id: null };
+                    let maxWatts = { watts: 0, date: null, id: null };
                     const weeklyGroup = {};
                     const monthlyGroup = {};
 
                     data.forEach(a => {
-                        if (a.distance > longestRide.distance) { longestRide = { distance: a.distance, date: a.start_date }; }
-                        if (a.total_elevation_gain > biggestClimb.elev) { biggestClimb = { elev: a.total_elevation_gain, date: a.start_date }; }
-                        if (a.max_watts > maxWatts.watts) { maxWatts = { watts: a.max_watts, date: a.start_date }; }
+                        const sId = a.strava_id || a.id;
+                        if (a.distance > longestRide.distance) { longestRide = { distance: a.distance, date: a.start_date, id: sId }; }
+                        if (a.total_elevation_gain > biggestClimb.elev) { biggestClimb = { elev: a.total_elevation_gain, date: a.start_date, id: sId }; }
+                        if (a.max_watts > maxWatts.watts) { maxWatts = { watts: a.max_watts, date: a.start_date, id: sId }; }
 
                         if (a.start_date) {
                             const d = new Date(a.start_date);
@@ -576,21 +581,23 @@
                     let maxMonth = { dist: 0, date: null };
                     Object.entries(monthlyGroup).forEach(([date, dist]) => { if (dist > maxMonth.dist) maxMonth = { dist, date }; });
 
+                    const linkStyle = "color: inherit; text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.3); transition: all 0.2s;";
+
                     if (longestRide.date) {
                         const lrDate = new Date(longestRide.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
-                        document.getElementById('pr-longest-dist').innerHTML = `${(longestRide.distance / 1000).toFixed(1)}<span>km</span>`;
+                        document.getElementById('pr-longest-dist').innerHTML = `<a href="https://www.strava.com/activities/${longestRide.id}" target="_blank" style="${linkStyle}">${(longestRide.distance / 1000).toFixed(1)}<span>km</span></a>`;
                         document.getElementById('pr-longest-date').innerText = lrDate;
                     }
 
                     if (biggestClimb.date) {
                         const bcDate = new Date(biggestClimb.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
-                        document.getElementById('pr-biggest-climb').innerHTML = `${biggestClimb.elev.toLocaleString()}<span>m</span>`;
+                        document.getElementById('pr-biggest-climb').innerHTML = `<a href="https://www.strava.com/activities/${biggestClimb.id}" target="_blank" style="${linkStyle}">${biggestClimb.elev.toLocaleString()}<span>m</span></a>`;
                         document.getElementById('pr-biggest-climb-date').innerText = bcDate;
                     }
 
                     if (maxWatts.date) {
                         const mwDate = new Date(maxWatts.date).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
-                        document.getElementById('pr-max-watts').innerHTML = `${Number(maxWatts.watts).toFixed(0)}<span>W</span>`;
+                        document.getElementById('pr-max-watts').innerHTML = `<a href="https://www.strava.com/activities/${maxWatts.id}" target="_blank" style="${linkStyle}">${Number(maxWatts.watts).toFixed(0)}<span>W</span></a>`;
                         document.getElementById('pr-max-watts-date').innerText = mwDate;
                     }
 
@@ -686,6 +693,11 @@
                         const effEl = document.getElementById('trend-efficiency');
                         if (effEl && trends.avg_efficiency) effEl.innerHTML = `${trends.avg_efficiency.toFixed(2)}<span>P/HR</span>`;
 
+                        const driftEl = document.getElementById('trend-drift');
+                        if (driftEl && trends.avg_drift !== null) {
+                            driftEl.innerHTML = `${trends.avg_drift.toFixed(2)}<span>%</span>`;
+                        }
+
                         const weightEl = document.getElementById('health-weight');
                         if (weightEl && trends.latest_weight) {
                             weightEl.innerHTML = `${trends.latest_weight.toFixed(1)}<span>kg</span>`;
@@ -700,8 +712,28 @@
                         const fitnessEl = document.getElementById('trend-vo2');
                         if (fitnessEl && trends.fitness_level) {
                             fitnessEl.innerHTML = `${trends.fitness_level}<span>pts</span>`;
+
+                            // Color coding for Fitness Score (VO2 Max approx)
+                            // >45 (Green), 35-45 (Yellow), <35 (Red)
+                            if (trends.fitness_level >= 45) fitnessEl.style.color = '#10b981';
+                            else if (trends.fitness_level >= 35) fitnessEl.style.color = '#fbbf24';
+                            else fitnessEl.style.color = '#ef4444';
+
                             const fsEl = document.getElementById('fitness-score-card');
                             if (fsEl) fsEl.style.display = 'flex';
+                        }
+
+                        const recEl = document.getElementById('trend-recovery');
+                        if (recEl && trends.recovery_score !== null) {
+                            recEl.innerHTML = `${trends.recovery_score}<span>%</span>`;
+                            const rsCard = document.getElementById('recovery-score-card');
+                            if (rsCard) {
+                                rsCard.style.display = 'flex';
+                                // Simple color coding logic
+                                if (trends.recovery_score >= 80) recEl.style.color = '#10b981'; // Green
+                                else if (trends.recovery_score >= 40) recEl.style.color = '#fbbf24'; // Yellow
+                                else recEl.style.color = '#ef4444'; // Red
+                            }
                         }
 
                         if (data.length > 0) {
