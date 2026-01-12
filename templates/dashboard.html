@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GravityStrato | Dashboard</title>
     <!-- Cache-busting link for CSS -->
-    <link rel="stylesheet" href="/static/css/dashboard.css?v=4.0.0">
+    <link rel="stylesheet" href="/static/css/dashboard.css?v=5.5.0">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -132,192 +132,200 @@
             </div>
         </header>
 
-        <div class="dashboard-grid">
-            <!-- This Week's Performance -->
-            <div class="metric-card">
-                <div class="card-title">Weekly Performance</div>
-                <div class="card-header-metrics">
-                    <div class="h-detail-item">
-                        <div class="h-detail-label">Distance</div>
-                        <div class="total-main" id="week-total-dist">—<span>km</span></div>
+        <div class="dashboard-grid"
+            style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start;">
+            <!-- Left Column: Nested Grid -->
+            <div class="left-column-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                <!-- This Week's Performance -->
+                <div class="metric-card">
+                    <div class="card-title">Weekly Performance</div>
+                    <div class="card-header-metrics">
+                        <div class="h-detail-item">
+                            <div class="h-detail-label">Distance</div>
+                            <div class="total-main" id="week-total-dist">—<span>km</span></div>
+                        </div>
+                        <div class="h-detail-item">
+                            <div class="h-detail-label">Elevation</div>
+                            <div class="total-main" id="week-total-elev">—<span>m</span></div>
+                        </div>
+                        <div class="h-detail-item">
+                            <div class="h-detail-label">Activities</div>
+                            <div class="total-main" id="week-total-count">—</div>
+                        </div>
+                        <div class="h-detail-item">
+                            <div class="h-detail-label">Time</div>
+                            <div class="total-main" id="week-total-time">—<span>hr</span></div>
+                        </div>
                     </div>
-                    <div class="h-detail-item">
-                        <div class="h-detail-label">Elevation</div>
-                        <div class="total-main" id="week-total-elev">—<span>m</span></div>
-                    </div>
-                    <div class="h-detail-item">
-                        <div class="h-detail-label">Activities</div>
-                        <div class="total-main" id="week-total-count">—</div>
-                    </div>
-                    <div class="h-detail-item">
-                        <div class="h-detail-label">Time</div>
-                        <div class="total-main" id="week-total-time">—<span>hr</span></div>
+                    <div class="activity-table-container">
+                        <table class="activity-table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: left;">Type</th>
+                                    <th>Dist</th>
+                                    <th>Avg HR</th>
+                                    <th>Watts</th>
+                                </tr>
+                            </thead>
+                            <tbody id="week-table-body">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div class="activity-table-container">
-                    <table class="activity-table">
-                        <thead>
-                            <tr>
-                                <th style="text-align: left;">Type</th>
-                                <th>Dist</th>
-                                <th>Avg HR</th>
-                                <th>Watts</th>
-                            </tr>
-                        </thead>
-                        <tbody id="week-table-body">
-                            <!-- Populated by JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
 
-            <!-- Monthly Training Volume (Chart) -->
-            <div class="metric-card">
-                <div class="card-title">Monthly Volume (Hours)</div>
-                <div style="flex-grow: 1; position: relative; height: 0; min-height: 0; margin-top: 1rem;">
-                    <canvas id="monthlyChart"></canvas>
+                <!-- Monthly Training Volume (Chart) -->
+                <div class="metric-card">
+                    <div class="card-title">Monthly Volume (Hours)</div>
+                    <div style="flex-grow: 1; position: relative; height: 0; min-height: 0; margin-top: 1rem;">
+                        <canvas id="monthlyChart"></canvas>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Year-to-Date Summary -->
-            <div class="metric-card">
-                <div class="card-title">Year-To-Date Totals</div>
-                <div class="card-header-metrics">
-                    <div class="h-detail-item">
-                        <div class="h-detail-label">Distance</div>
-                        <div class="total-main" id="ytd-total-dist">—<span>km</span></div>
+                <!-- Year-to-Date Summary -->
+                <div class="metric-card">
+                    <div class="card-title">Year-To-Date Totals</div>
+                    <div class="card-header-metrics">
+                        <div class="h-detail-item">
+                            <div class="h-detail-label">Distance</div>
+                            <div class="total-main" id="ytd-total-dist">—<span>km</span></div>
+                        </div>
+                        <div class="h-detail-item">
+                            <div class="h-detail-label">Elevation</div>
+                            <div class="total-main" id="ytd-total-elev">—<span>m</span></div>
+                        </div>
+                        <div class="h-detail-item">
+                            <div class="h-detail-label">Activities</div>
+                            <div class="total-main" id="ytd-total-count">—</div>
+                        </div>
+                        <div class="h-detail-item">
+                            <div class="h-detail-label">Time</div>
+                            <div class="total-main" id="ytd-total-time">—<span>hr</span></div>
+                        </div>
                     </div>
-                    <div class="h-detail-item">
-                        <div class="h-detail-label">Elevation</div>
-                        <div class="total-main" id="ytd-total-elev">—<span>m</span></div>
-                    </div>
-                    <div class="h-detail-item">
-                        <div class="h-detail-label">Activities</div>
-                        <div class="total-main" id="ytd-total-count">—</div>
-                    </div>
-                    <div class="h-detail-item">
-                        <div class="h-detail-label">Time</div>
-                        <div class="total-main" id="ytd-total-time">—<span>hr</span></div>
+                    <div class="activity-table-container">
+                        <table class="activity-table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: left;">Category</th>
+                                    <th>Total Dist</th>
+                                    <th>Elevation</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ytd-table-body">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div class="activity-table-container">
-                    <table class="activity-table">
-                        <thead>
-                            <tr>
-                                <th style="text-align: left;">Category</th>
-                                <th>Total Dist</th>
-                                <th>Elevation</th>
-                                <th>Time</th>
-                            </tr>
-                        </thead>
-                        <tbody id="ytd-table-body">
-                            <!-- Populated by JS -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
 
-            <!-- Training Zones Distribution -->
-            <div class="metric-card pr-card" style="display: none;">
-                <div class="card-title">Yearly Training Intensity</div>
-                <div class="zones-container">
-                    <div class="zone-box">
-                        <div class="insight-label" style="margin-bottom: 1rem;">Heart Rate Zones</div>
-                        <div id="hr-zones-list">
-                            <!-- Populated by JS -->
+                <!-- Training Zones Distribution -->
+                <div class="metric-card pr-card" style="display: none;">
+                    <div class="card-title">Yearly Training Intensity</div>
+                    <div class="zones-container">
+                        <div class="zone-box">
+                            <div class="insight-label" style="margin-bottom: 1rem;">Heart Rate Zones</div>
+                            <div id="hr-zones-list">
+                                <!-- Populated by JS -->
+                            </div>
                         </div>
-                    </div>
-                    <div class="zone-box">
-                        <div class="insight-label" style="margin-bottom: 1rem;">Power Zones</div>
-                        <div id="power_zones_list">
-                            <!-- Populated by JS -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Personal Best Efforts -->
-            <div class="metric-card pr-card">
-                <div class="card-title" style="display: flex; justify-content: space-between; align-items: center;">
-                    All-Time Personal Bests
-                    <button id="sync-pb-btn" class="btn btn-outline"
-                        style="font-size: 10px; padding: 2px 6px; height: auto;">
-                        <span id="sync-pb-icon">🔄</span> Sync All Data
-                    </button>
-                </div>
-                <div class="insights-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                    <div class="insight-metric">
-                        <div class="insight-label">Longest Ride</div>
-                        <div class="insight-value" id="pr-longest-dist">—<span>km</span></div>
-                        <div class="insight-label" id="pr-longest-date" style="font-size: 0.75rem; opacity: 0.7;">—
-                        </div>
-                    </div>
-                    <div class="insight-metric">
-                        <div class="insight-label">Biggest Climb</div>
-                        <div class="insight-value" id="pr-biggest-climb">—<span>m</span></div>
-                        <div class="insight-label" id="pr-biggest-climb-date" style="font-size: 0.75rem; opacity: 0.7;">
-                            —</div>
-                    </div>
-                    <div class="insight-metric">
-                        <div class="insight-label">Max Watts</div>
-                        <div class="insight-value" id="pr-max-watts">—<span>W</span></div>
-                        <div class="insight-label" id="pr-max-watts-date" style="font-size: 0.75rem; opacity: 0.7;">—
-                        </div>
-                    </div>
-                    <div class="insight-metric">
-                        <div class="insight-label">Most Weekly Distance</div>
-                        <div class="insight-value" id="pr-max-week-dist">—<span>km</span></div>
-                        <div class="insight-label" id="pr-max-week-date" style="font-size: 0.75rem; opacity: 0.7;">—
-                        </div>
-                    </div>
-                    <div class="insight-metric">
-                        <div class="insight-label">Most Monthly Distance</div>
-                        <div class="insight-value" id="pr-max-month-dist">—<span>km</span></div>
-                        <div class="insight-label" id="pr-max-month-date" style="font-size: 0.75rem; opacity: 0.7;">—
+                        <div class="zone-box">
+                            <div class="insight-label" style="margin-bottom: 1rem;">Power Zones</div>
+                            <div id="power_zones_list">
+                                <!-- Populated by JS -->
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- All-Time Power Profile -->
-            <div class="metric-card pr-card">
-                <div class="card-title">All-Time Power Profile</div>
-                <div class="insights-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                    <div class="insight-metric">
-                        <div class="insight-label">1-min Power</div>
-                        <div class="insight-value" id="pwr-1min">—<span>W</span></div>
-                        <div class="insight-label" id="pwr-1min-date" style="font-size: 0.75rem; opacity: 0.7;">
-                            Anaerobic Capacity</div>
+                <!-- Personal Best Efforts -->
+                <div class="metric-card pr-card">
+                    <div class="card-title" style="display: flex; justify-content: space-between; align-items: center;">
+                        All-Time Personal Bests
+                        <button id="sync-pb-btn" class="btn btn-outline"
+                            style="font-size: 10px; padding: 2px 6px; height: auto;">
+                            <span id="sync-pb-icon">🔄</span> Sync All Data
+                        </button>
                     </div>
-                    <div class="insight-metric">
-                        <div class="insight-label">5-min Power</div>
-                        <div class="insight-value" id="pwr-5min">—<span>W</span></div>
-                        <div class="insight-label" id="pwr-5min-date" style="font-size: 0.75rem; opacity: 0.7;">VO₂
-                            Ceiling</div>
+                    <div class="insights-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                        <div class="insight-metric">
+                            <div class="insight-label">Longest Ride</div>
+                            <div class="insight-value" id="pr-longest-dist">—<span>km</span></div>
+                            <div class="insight-label" id="pr-longest-date" style="font-size: 0.75rem; opacity: 0.7;">—
+                            </div>
+                        </div>
+                        <div class="insight-metric">
+                            <div class="insight-label">Biggest Climb</div>
+                            <div class="insight-value" id="pr-biggest-climb">—<span>m</span></div>
+                            <div class="insight-label" id="pr-biggest-climb-date"
+                                style="font-size: 0.75rem; opacity: 0.7;">
+                                —</div>
+                        </div>
+                        <div class="insight-metric">
+                            <div class="insight-label">Max Watts</div>
+                            <div class="insight-value" id="pr-max-watts">—<span>W</span></div>
+                            <div class="insight-label" id="pr-max-watts-date" style="font-size: 0.75rem; opacity: 0.7;">
+                                —
+                            </div>
+                        </div>
+                        <div class="insight-metric">
+                            <div class="insight-label">Most Weekly Distance</div>
+                            <div class="insight-value" id="pr-max-week-dist">—<span>km</span></div>
+                            <div class="insight-label" id="pr-max-week-date" style="font-size: 0.75rem; opacity: 0.7;">—
+                            </div>
+                        </div>
+                        <div class="insight-metric">
+                            <div class="insight-label">Most Monthly Distance</div>
+                            <div class="insight-value" id="pr-max-month-dist">—<span>km</span></div>
+                            <div class="insight-label" id="pr-max-month-date" style="font-size: 0.75rem; opacity: 0.7;">
+                                —
+                            </div>
+                        </div>
                     </div>
-                    <div class="insight-metric">
-                        <div class="insight-label">20-min Power</div>
-                        <div class="insight-value" id="pwr-20min">—<span>W</span></div>
-                        <div class="insight-label" id="pwr-20min-date" style="font-size: 0.75rem; opacity: 0.7;">FTP
-                            Proxy</div>
-                    </div>
-                    <div class="insight-metric">
-                        <div class="insight-label">60-min Power</div>
-                        <div class="insight-value" id="pwr-60min">—<span>W</span></div>
-                        <div class="insight-label" id="pwr-60min-date" style="font-size: 0.75rem; opacity: 0.7;">
-                            Endurance Threshold</div>
-                    </div>
-                    <div class="insight-metric">
-                        <div class="insight-label">Cycling Highest Avg Power</div>
-                        <div class="insight-value" id="pwr-max-avg">—<span>W</span></div>
-                        <div class="insight-label" id="pwr-max-avg-date" style="font-size: 0.75rem; opacity: 0.7;">Rides
-                            ≥ 60 min</div>
+                </div>
+
+                <!-- All-Time Power Profile -->
+                <div class="metric-card pr-card">
+                    <div class="card-title">All-Time Power Profile</div>
+                    <div class="insights-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                        <div class="insight-metric">
+                            <div class="insight-label">1-min Power</div>
+                            <div class="insight-value" id="pwr-1min">—<span>W</span></div>
+                            <div class="insight-label" id="pwr-1min-date" style="font-size: 0.75rem; opacity: 0.7;">
+                                Anaerobic Capacity</div>
+                        </div>
+                        <div class="insight-metric">
+                            <div class="insight-label">5-min Power</div>
+                            <div class="insight-value" id="pwr-5min">—<span>W</span></div>
+                            <div class="insight-label" id="pwr-5min-date" style="font-size: 0.75rem; opacity: 0.7;">VO₂
+                                Ceiling</div>
+                        </div>
+                        <div class="insight-metric">
+                            <div class="insight-label">20-min Power</div>
+                            <div class="insight-value" id="pwr-20min">—<span>W</span></div>
+                            <div class="insight-label" id="pwr-20min-date" style="font-size: 0.75rem; opacity: 0.7;">FTP
+                                Proxy</div>
+                        </div>
+                        <div class="insight-metric">
+                            <div class="insight-label">60-min Power</div>
+                            <div class="insight-value" id="pwr-60min">—<span>W</span></div>
+                            <div class="insight-label" id="pwr-60min-date" style="font-size: 0.75rem; opacity: 0.7;">
+                                Endurance Threshold</div>
+                        </div>
+                        <div class="insight-metric">
+                            <div class="insight-label">Cycling Highest Avg Power</div>
+                            <div class="insight-value" id="pwr-max-avg">—<span>W</span></div>
+                            <div class="insight-label" id="pwr-max-avg-date" style="font-size: 0.75rem; opacity: 0.7;">
+                                Rides
+                                ≥ 60 min</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- AI Fitness Insights (Bottom Row) -->
-            <div class="metric-card ai-insights-card" id="ai-panel">
+            <!-- AI Fitness Insights (Right Column) -->
+            <div class="metric-card ai-insights-card" id="ai-panel" style="grid-column: 2; grid-row: 1 / -1;">
                 <div class="card-title">AI Fitness Insights & Trends</div>
                 <div class="insights-grid">
                     <div class="insight-metric">
@@ -375,7 +383,8 @@
                                 Withings →</a>
                         </div>
                         <div style="margin-top: 1rem; font-size: 0.8125rem; color: var(--text-secondary);"
-                            id="ai-notes"></div>
+                            id="ai-notes">
+                        </div>
                     </div>
                 </div>
             </div>
